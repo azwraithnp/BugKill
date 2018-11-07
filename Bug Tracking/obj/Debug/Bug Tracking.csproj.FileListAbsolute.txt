@@ -16,3 +16,4 @@ C:\Users\Avinash Mishra\source\repos\Bug Tracking\Bug Tracking\obj\Debug\Bug Tra
 C:\Users\Avinash Mishra\source\repos\Bug Tracking\Bug Tracking\obj\Debug\Bug_Tracking.AddProduct.resources
 C:\Users\Avinash Mishra\source\repos\Bug Tracking\Bug Tracking\obj\Debug\Bug_Tracking.Login.resources
 C:\Users\Avinash Mishra\source\repos\Bug Tracking\Bug Tracking\obj\Debug\Bug_Tracking.CreateAccount.resources
+C:\Users\Avinash Mishra\source\repos\Bug Tracking\Bug Tracking\obj\Debug\Bug_Tracking.AddNewBug.resources

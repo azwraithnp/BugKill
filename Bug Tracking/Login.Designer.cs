@@ -198,6 +198,7 @@
             this.addNewBugToolStripMenuItem.Name = "addNewBugToolStripMenuItem";
             this.addNewBugToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
             this.addNewBugToolStripMenuItem.Text = "Add new bug";
+            this.addNewBugToolStripMenuItem.Click += new System.EventHandler(this.addNewBugToolStripMenuItem_Click);
             // 
             // requestReportToolStripMenuItem
             // 
