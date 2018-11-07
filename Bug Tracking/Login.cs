@@ -12,12 +12,12 @@ namespace Bug_Tracking
 {
 
     
-    public partial class Form2 : Form
+    public partial class Login : Form
     {
         MySql.Data.MySqlClient.MySqlConnection dbConn;
         String username, password;
 
-        public Form2()
+        public Login()
         {
             InitializeComponent();
             Connections conn = new Connections();
@@ -58,8 +58,14 @@ namespace Bug_Tracking
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Form form3 = new Form3();
+            Form form3 = new CreateAccount();
             form3.Show();
+        }
+
+        private void addNewProductToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form addProd = new AddProduct();
+            addProd.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)

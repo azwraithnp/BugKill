@@ -3,7 +3,6 @@ C:\Users\Avinash Mishra\source\repos\Bug Tracking\Bug Tracking\bin\Debug\Bug Tra
 C:\Users\Avinash Mishra\source\repos\Bug Tracking\Bug Tracking\bin\Debug\Bug Tracking.pdb
 C:\Users\Avinash Mishra\source\repos\Bug Tracking\Bug Tracking\obj\Debug\Bug Tracking.csprojAssemblyReference.cache
 C:\Users\Avinash Mishra\source\repos\Bug Tracking\Bug Tracking\obj\Debug\Bug_Tracking.Form1.resources
-C:\Users\Avinash Mishra\source\repos\Bug Tracking\Bug Tracking\obj\Debug\Bug_Tracking.Form2.resources
 C:\Users\Avinash Mishra\source\repos\Bug Tracking\Bug Tracking\obj\Debug\Bug_Tracking.MDIParent1.resources
 C:\Users\Avinash Mishra\source\repos\Bug Tracking\Bug Tracking\obj\Debug\Bug_Tracking.Properties.Resources.resources
 C:\Users\Avinash Mishra\source\repos\Bug Tracking\Bug Tracking\obj\Debug\Bug Tracking.csproj.GenerateResource.cache
@@ -14,4 +13,6 @@ C:\Users\Avinash Mishra\source\repos\Bug Tracking\Bug Tracking\bin\Debug\MySql.D
 C:\Users\Avinash Mishra\source\repos\Bug Tracking\Bug Tracking\bin\Debug\Google.Protobuf.dll
 C:\Users\Avinash Mishra\source\repos\Bug Tracking\Bug Tracking\bin\Debug\MySql.Data.xml
 C:\Users\Avinash Mishra\source\repos\Bug Tracking\Bug Tracking\obj\Debug\Bug Tracking.csproj.CopyComplete
-C:\Users\Avinash Mishra\source\repos\Bug Tracking\Bug Tracking\obj\Debug\Bug_Tracking.Form3.resources
+C:\Users\Avinash Mishra\source\repos\Bug Tracking\Bug Tracking\obj\Debug\Bug_Tracking.AddProduct.resources
+C:\Users\Avinash Mishra\source\repos\Bug Tracking\Bug Tracking\obj\Debug\Bug_Tracking.Login.resources
+C:\Users\Avinash Mishra\source\repos\Bug Tracking\Bug Tracking\obj\Debug\Bug_Tracking.CreateAccount.resources
