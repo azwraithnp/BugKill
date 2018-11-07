@@ -14,6 +14,13 @@ namespace Bug_Tracking
         [STAThread]
         static void Main()
         {
+            //MySql.Data.MySqlClient.MySqlConnection dbConn;
+
+            //Connections conn = new Connections();
+            //dbConn = conn.initializeConn();
+            //dbConn.Open();
+            
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form2());

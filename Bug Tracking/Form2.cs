@@ -10,11 +10,20 @@ using System.Windows.Forms;
 
 namespace Bug_Tracking
 {
+
+    
     public partial class Form2 : Form
     {
+        MySql.Data.MySqlClient.MySqlConnection dbConn;
+        String username, password;
+
         public Form2()
         {
             InitializeComponent();
+            Connections conn = new Connections();
+            dbConn = conn.initializeConn();
+            dbConn.Open();
+
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -36,5 +45,51 @@ namespace Bug_Tracking
         {
 
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Form form3 = new Form3();
+            form3.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("MySQL version : {0}", dbConn.ServerVersion);
+            username = textBox1.Text.ToString();
+            password = textBox2.Text.ToString();
+            Console.WriteLine(username + password);
+
+            string stm = "SELECT * FROM users";
+            MySql.Data.MySqlClient.MySqlCommand cmd = new MySql.Data.MySqlClient.MySqlCommand(stm, dbConn);
+            MySql.Data.MySqlClient.MySqlDataReader rdr = cmd.ExecuteReader();
+
+            while (rdr.Read())
+            {
+                int id = rdr.GetInt32(0);
+                string user = rdr.GetString(1);
+                string pass = rdr.GetString(2);
+                string type = rdr.GetString(3);
+
+                if (user.Equals(username) && pass.Equals(password))
+                {
+                    Console.WriteLine("Logged In!");
+                    string message = "You have logged in as " + type + "!";
+                    string title = "Login Successful";
+                    MessageBox.Show(message, title);
+                    break;
+                }
+                }
+            }
+        }
     }
-}
+
