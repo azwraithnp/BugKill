@@ -6,8 +6,13 @@ using System.Windows.Forms;
 
 namespace Bug_Tracking
 {
+
+    
+
     static class Program
     {
+        
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -20,7 +25,8 @@ namespace Bug_Tracking
             //dbConn = conn.initializeConn();
             //dbConn.Open();
             
-
+            
+            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Login());

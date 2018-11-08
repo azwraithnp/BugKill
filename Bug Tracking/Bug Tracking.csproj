@@ -59,6 +59,7 @@
     <Compile Include="AddProduct.Designer.cs">
       <DependentUpon>AddProduct.cs</DependentUpon>
     </Compile>
+    <Compile Include="Session.cs" />
     <Compile Include="Connections.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>

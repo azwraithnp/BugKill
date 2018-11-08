@@ -26,6 +26,7 @@ namespace Bug_Tracking
         public AddNewBug()
         {
             InitializeComponent();
+            textBox2.Text = Session.session_name;
             Connections conn = new Connections();
             dbConn = conn.initializeConn();
             dbConn.Open();
@@ -152,6 +153,11 @@ namespace Bug_Tracking
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

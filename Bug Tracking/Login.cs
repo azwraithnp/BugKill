@@ -91,10 +91,11 @@ namespace Bug_Tracking
                 string user = rdr.GetString(1);
                 string pass = rdr.GetString(2);
                 string type = rdr.GetString(3);
-
+               
                 if (user.Equals(username) && pass.Equals(password))
                 {
                     Console.WriteLine("Logged In!");
+                    Session.session_name = user;
                     string message = "You have logged in as " + type + "!";
                     string title = "Login Successful";
                     MessageBox.Show(message, title);
