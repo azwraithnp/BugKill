@@ -74,6 +74,12 @@ namespace Bug_Tracking
             addnewbug.Show();
         }
 
+        private void bugLogsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form showBugs = new ViewBugs();
+            showBugs.Show();
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             Console.WriteLine("MySQL version : {0}", dbConn.ServerVersion);

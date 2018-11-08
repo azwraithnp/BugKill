@@ -185,6 +185,7 @@
             this.bugLogsToolStripMenuItem.Name = "bugLogsToolStripMenuItem";
             this.bugLogsToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
             this.bugLogsToolStripMenuItem.Text = "Bug logs";
+            this.bugLogsToolStripMenuItem.Click += new System.EventHandler(this.bugLogsToolStripMenuItem_Click);
             // 
             // addNewProductToolStripMenuItem
             // 

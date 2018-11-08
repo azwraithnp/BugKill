@@ -87,6 +87,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewBugs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewBugs.Designer.cs">
+      <DependentUpon>ViewBugs.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AddNewBug.resx">
       <DependentUpon>AddNewBug.cs</DependentUpon>
     </EmbeddedResource>
@@ -114,6 +120,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ViewBugs.resx">
+      <DependentUpon>ViewBugs.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
