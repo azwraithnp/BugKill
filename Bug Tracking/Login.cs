@@ -80,6 +80,11 @@ namespace Bug_Tracking
             showBugs.Show();
         }
 
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             Console.WriteLine("MySQL version : {0}", dbConn.ServerVersion);

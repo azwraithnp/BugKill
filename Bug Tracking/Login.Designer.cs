@@ -39,15 +39,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bugLogsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addNewProductToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addNewBugToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.requestReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -62,7 +55,7 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.Location = new System.Drawing.Point(12, 36);
+            this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(628, 402);
             this.panel1.TabIndex = 5;
@@ -155,77 +148,25 @@
             this.label1.Font = new System.Drawing.Font("Monotype Corsiva", 26.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(628, 61);
+            this.label1.Size = new System.Drawing.Size(628, 66);
             this.label1.TabIndex = 0;
             this.label1.Text = "Login";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.homeToolStripMenuItem,
-            this.bugLogsToolStripMenuItem,
-            this.addNewProductToolStripMenuItem,
-            this.addNewBugToolStripMenuItem,
-            this.requestReportToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(652, 24);
-            this.menuStrip1.TabIndex = 7;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // homeToolStripMenuItem
-            // 
-            this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
-            this.homeToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
-            this.homeToolStripMenuItem.Text = "Home";
-            // 
-            // bugLogsToolStripMenuItem
-            // 
-            this.bugLogsToolStripMenuItem.Name = "bugLogsToolStripMenuItem";
-            this.bugLogsToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
-            this.bugLogsToolStripMenuItem.Text = "Bug logs";
-            this.bugLogsToolStripMenuItem.Click += new System.EventHandler(this.bugLogsToolStripMenuItem_Click);
-            // 
-            // addNewProductToolStripMenuItem
-            // 
-            this.addNewProductToolStripMenuItem.Name = "addNewProductToolStripMenuItem";
-            this.addNewProductToolStripMenuItem.Size = new System.Drawing.Size(111, 20);
-            this.addNewProductToolStripMenuItem.Text = "Add new product";
-            this.addNewProductToolStripMenuItem.Click += new System.EventHandler(this.addNewProductToolStripMenuItem_Click);
-            // 
-            // addNewBugToolStripMenuItem
-            // 
-            this.addNewBugToolStripMenuItem.Name = "addNewBugToolStripMenuItem";
-            this.addNewBugToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
-            this.addNewBugToolStripMenuItem.Text = "Add new bug";
-            this.addNewBugToolStripMenuItem.Click += new System.EventHandler(this.addNewBugToolStripMenuItem_Click);
-            // 
-            // requestReportToolStripMenuItem
-            // 
-            this.requestReportToolStripMenuItem.Name = "requestReportToolStripMenuItem";
-            this.requestReportToolStripMenuItem.Size = new System.Drawing.Size(96, 20);
-            this.requestReportToolStripMenuItem.Text = "Request report";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(652, 450);
+            this.ClientSize = new System.Drawing.Size(652, 434);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.menuStrip1);
-            this.IsMdiContainer = true;
-            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Login";
             this.Text = "Login";
             this.Load += new System.EventHandler(this.Form2_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -240,12 +181,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem homeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem bugLogsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem addNewBugToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem requestReportToolStripMenuItem;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ToolStripMenuItem addNewProductToolStripMenuItem;
     }
 }
