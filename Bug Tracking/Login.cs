@@ -110,6 +110,7 @@ namespace Bug_Tracking
                     string message = "You have logged in as " + type + "!";
                     string title = "Login Successful";
                     MessageBox.Show(message, title);
+                    this.Close();
                     break;
                 }
                 }
