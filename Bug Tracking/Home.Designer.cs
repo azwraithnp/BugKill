@@ -54,8 +54,8 @@
             // homeToolStripMenuItem
             // 
             this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
-            this.homeToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
-            this.homeToolStripMenuItem.Text = "Login";
+            this.homeToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
+            this.homeToolStripMenuItem.Text = "Login/Join";
             this.homeToolStripMenuItem.Click += new System.EventHandler(this.homeToolStripMenuItem_Click);
             // 
             // bugLogsToolStripMenuItem
