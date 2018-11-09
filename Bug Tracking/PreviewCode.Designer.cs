@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textEditorControl1 = new ICSharpCode.TextEditor.TextEditorControl();
             this.SuspendLayout();
             // 
             // label1
@@ -43,36 +43,33 @@
             this.label1.Text = "Code Preview";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // textBox1
+            // textEditorControl1
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(12, 87);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBox1.Size = new System.Drawing.Size(776, 470);
-            this.textBox1.TabIndex = 4;
-            this.textBox1.WordWrap = false;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.textEditorControl1.IsReadOnly = false;
+            this.textEditorControl1.Location = new System.Drawing.Point(12, 87);
+            this.textEditorControl1.Name = "textEditorControl1";
+            this.textEditorControl1.Size = new System.Drawing.Size(776, 470);
+            this.textEditorControl1.TabIndex = 4;
+            this.textEditorControl1.Text = "textEditorControl1";
+            this.textEditorControl1.Load += new System.EventHandler(this.textEditorControl1_Load);
             // 
             // PreviewCode
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 569);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textEditorControl1);
             this.Controls.Add(this.label1);
             this.Name = "PreviewCode";
             this.Text = "PreviewCode";
+            this.Load += new System.EventHandler(this.PreviewCode_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private ICSharpCode.TextEditor.TextEditorControl textEditorControl1;
     }
 }

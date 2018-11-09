@@ -20,3 +20,4 @@ C:\Users\Avinash Mishra\source\repos\Bug Tracking\Bug Tracking\obj\Debug\Bug_Tra
 C:\Users\Avinash Mishra\source\repos\Bug Tracking\Bug Tracking\obj\Debug\Bug_Tracking.ViewBugs.resources
 C:\Users\Avinash Mishra\source\repos\Bug Tracking\Bug Tracking\obj\Debug\Bug_Tracking.PreviewBug.resources
 C:\Users\Avinash Mishra\source\repos\Bug Tracking\Bug Tracking\obj\Debug\Bug_Tracking.PreviewCode.resources
+C:\Users\Avinash Mishra\source\repos\Bug Tracking\Bug Tracking\bin\Debug\ICSharpCode.TextEditor.dll
