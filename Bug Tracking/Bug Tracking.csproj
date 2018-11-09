@@ -59,6 +59,18 @@
     <Compile Include="AddProduct.Designer.cs">
       <DependentUpon>AddProduct.cs</DependentUpon>
     </Compile>
+    <Compile Include="PreviewBug.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PreviewBug.Designer.cs">
+      <DependentUpon>PreviewBug.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PreviewCode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PreviewCode.Designer.cs">
+      <DependentUpon>PreviewCode.cs</DependentUpon>
+    </Compile>
     <Compile Include="Session.cs" />
     <Compile Include="Connections.cs" />
     <Compile Include="Form1.cs">
@@ -110,6 +122,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MDIParent1.resx">
       <DependentUpon>MDIParent1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PreviewBug.resx">
+      <DependentUpon>PreviewBug.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PreviewCode.resx">
+      <DependentUpon>PreviewCode.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

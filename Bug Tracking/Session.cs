@@ -11,6 +11,8 @@ namespace Bug_Tracking
     public class Session
     {
         public static string session_name = null;
+        public static string id = null;
+        public static string code = "";
 
     }
 }

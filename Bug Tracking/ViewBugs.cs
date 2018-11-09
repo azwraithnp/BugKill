@@ -48,9 +48,9 @@ namespace Bug_Tracking
                 string deadline = rdr.GetString(6);
                 string fixeds = rdr.GetString(10);
                 
-                imageList.Images.Add(Image.FromFile(@"../../forward.png"));
-                listView1.LargeImageList = imageList;
-                listView1.SmallImageList = imageList;
+                //imageList.Images.Add(Image.FromFile(@"../../forward.png"));
+                //listView1.LargeImageList = imageList;
+                //listView1.SmallImageList = imageList;
 
                 var collection = new string[] {id + "", reporter, version, severity, platform, product, deadline, fixeds };
                 var lvl = new ListViewItem(collection);
@@ -67,9 +67,14 @@ namespace Bug_Tracking
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
             var selectedItem = listView1.SelectedItems[0].Text;
-            string message = selectedItem;
-            MessageBox.Show(message, "hello");
+            Session.id = selectedItem;
+            Form previewBugs = new PreviewBug();
+            previewBugs.Show();
+            this.Close();
+            
+
         }
 
         private void label2_Click(object sender, EventArgs e)
