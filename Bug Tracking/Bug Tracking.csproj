@@ -118,6 +118,12 @@
     <Compile Include="ViewBugs.Designer.cs">
       <DependentUpon>ViewBugs.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewDeveloperDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewDeveloperDetails.Designer.cs">
+      <DependentUpon>ViewDeveloperDetails.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AddDeveloperDetails.resx">
       <DependentUpon>AddDeveloperDetails.cs</DependentUpon>
     </EmbeddedResource>
@@ -156,6 +162,9 @@
     </Compile>
     <EmbeddedResource Include="ViewBugs.resx">
       <DependentUpon>ViewBugs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewDeveloperDetails.resx">
+      <DependentUpon>ViewDeveloperDetails.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

@@ -168,5 +168,10 @@ namespace Bug_Tracking
         {
 
         }
+
+        private void AddDeveloperDetails_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

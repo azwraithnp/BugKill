@@ -226,6 +226,7 @@
             this.Controls.Add(this.label1);
             this.Name = "AddDeveloperDetails";
             this.Text = "Developer details";
+            this.Load += new System.EventHandler(this.AddDeveloperDetails_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

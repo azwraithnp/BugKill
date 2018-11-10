@@ -18,6 +18,7 @@ namespace Bug_Tracking
         string id="";
         int bugid = 0;
         public static Boolean codeExists = false;
+        Boolean recordExists = false;
 
         public PreviewBug()
         {
@@ -153,6 +154,41 @@ namespace Bug_Tracking
         {
             Form addDev = new AddDeveloperDetails();
             addDev.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            dbConn.Open();
+            string stm = "SELECT * FROM bugs_xdetails";
+            MySql.Data.MySqlClient.MySqlCommand cmd = new MySql.Data.MySqlClient.MySqlCommand(stm, dbConn);
+            MySql.Data.MySqlClient.MySqlDataReader rdr = cmd.ExecuteReader();
+
+            while (rdr.Read())
+            {
+                int bugid = rdr.GetInt32(0);
+                string author = rdr.GetString(1);
+                string classname = rdr.GetString(2);
+                string method = rdr.GetString(3);
+                string codeblock = rdr.GetString(4);
+                string linenumber = rdr.GetString(5);
+
+                if (this.bugid == bugid)
+                {
+                    recordExists = true;
+                    break;
+                }
+            }
+            dbConn.Close();
+
+            if (recordExists)
+            {
+                Form viewDetails = new ViewDeveloperDetails();
+                viewDetails.Show();
+            }
+            else
+            {
+                MessageBox.Show("Sorry, developer details are not yet added to this bug.", "Tech details not available");
+            }
         }
     }
 }
