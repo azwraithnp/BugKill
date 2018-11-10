@@ -18,6 +18,13 @@ namespace Bug_Tracking
         public CreateAccount()
         {
             InitializeComponent();
+
+            comboBox1.Items.Insert(0, "Select an account type");
+            comboBox1.SelectedIndex = 0;
+            comboBox1.Items.Add("Client/General consumer");
+            comboBox1.Items.Add("Black box Tester");
+            comboBox1.Items.Add("White box Tester");
+            comboBox1.Items.Add("Programmer/Developer");
             Connections conn = new Connections();
             dbConn = conn.initializeConn();
             dbConn.Open();
@@ -60,36 +67,39 @@ namespace Bug_Tracking
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("MySQL version : {0}", dbConn.ServerVersion);
-            string username = textBox1.Text.ToString();
-            string password = textBox2.Text.ToString();
-            string usertype = textBox3.Text.ToString();
-
-            try
+            if (ValidateChildren(ValidationConstraints.Enabled))
             {
-                MySqlCommand cmd = new MySqlCommand();
-                cmd.Connection = dbConn;
-                cmd.CommandText = "INSERT INTO users(username, password, usertype) VALUES(@username, @pass, @type)";
-                cmd.Prepare();
+                Console.WriteLine("MySQL version : {0}", dbConn.ServerVersion);
+                string username = textBox1.Text.ToString();
+                string password = textBox2.Text.ToString();
+                string usertype = comboBox1.SelectedValue.ToString();
 
-                cmd.Parameters.AddWithValue("@username", username);
-                cmd.Parameters.AddWithValue("@pass", password);
-                cmd.Parameters.AddWithValue("@type", usertype);
-                cmd.ExecuteNonQuery();
-            }
-            catch(MySqlException ex)
-            {
-                Console.WriteLine("Error: " + ex.ToString());
-
-            }
-            finally
-            {
-                if(dbConn != null)
+                try
                 {
-                    string message = "You have successfully created your account!";
-                    string title = "Create account successful";
-                    MessageBox.Show(message, title);
-                    dbConn.Close();
+                    MySqlCommand cmd = new MySqlCommand();
+                    cmd.Connection = dbConn;
+                    cmd.CommandText = "INSERT INTO users(username, password, usertype) VALUES(@username, @pass, @type)";
+                    cmd.Prepare();
+
+                    cmd.Parameters.AddWithValue("@username", username);
+                    cmd.Parameters.AddWithValue("@pass", password);
+                    cmd.Parameters.AddWithValue("@type", usertype);
+                    cmd.ExecuteNonQuery();
+                }
+                catch (MySqlException ex)
+                {
+                    Console.WriteLine("Error: " + ex.ToString());
+
+                }
+                finally
+                {
+                    if (dbConn != null)
+                    {
+                        string message = "You have successfully created your account!";
+                        string title = "Create account successful";
+                        MessageBox.Show(message, title);
+                        dbConn.Close();
+                    }
                 }
             }
         }
@@ -102,6 +112,28 @@ namespace Bug_Tracking
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_Validating(object sender, CancelEventArgs e)
+        {
+            
+            if(comboBox1.SelectedIndex == 0)
+            {
+                e.Cancel = true;
+               
+                errorProvider.SetError(comboBox1, "Please select an account type!");
+
+            }
+            else
+            {
+                e.Cancel = true;
+                errorProvider.SetError(comboBox1, null);
+            }
         }
     }
 }

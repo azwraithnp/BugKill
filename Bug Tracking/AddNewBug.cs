@@ -15,14 +15,10 @@ namespace Bug_Tracking
 
     public partial class AddNewBug : Form
     {
-
-
+        
         string sourcecode = "";
         MySqlConnection dbConn;
-
         
-
-
         public AddNewBug()
         {
             InitializeComponent();
@@ -104,50 +100,53 @@ namespace Bug_Tracking
 
         private void button1_Click(object sender, EventArgs e)
         {
-            dbConn.Open();
-            Console.WriteLine("MySQL version : {0}", dbConn.ServerVersion);
-            string reporter = textBox2.Text.ToString();
-            string version = textBox3.Text.ToString();
-            string severity = textBox4.Text.ToString();
-            string platform = textBox5.Text.ToString();
-            string product = comboBox1.SelectedItem.ToString();
-            string deadline = dateTimePicker1.Value.ToString();
-            string summary = textBox1.Text.ToString();
-            string description = textBox6.Text.ToString();
-           
-
-            try
+            if (ValidateChildren(ValidationConstraints.Enabled))
             {
-                MySqlCommand cmd = new MySqlCommand();
-                cmd.Connection = dbConn;
-                cmd.CommandText = "INSERT INTO bugs(reporter, version, severity, platform, product, deadline, summary, description, source) VALUES(@reporter, @version, @severity, @platform, @product, @deadline, @summary, @description, @source)";
-                cmd.Prepare();
+                dbConn.Open();
+                Console.WriteLine("MySQL version : {0}", dbConn.ServerVersion);
+                string reporter = textBox2.Text.ToString();
+                string version = textBox3.Text.ToString();
+                string severity = textBox4.Text.ToString();
+                string platform = textBox5.Text.ToString();
+                string product = comboBox1.SelectedItem.ToString();
+                string deadline = dateTimePicker1.Value.ToString();
+                string summary = textBox1.Text.ToString();
+                string description = textBox6.Text.ToString();
 
-                cmd.Parameters.AddWithValue("@reporter", reporter);
-                cmd.Parameters.AddWithValue("@version", version);
-                cmd.Parameters.AddWithValue("@severity", severity);
-                cmd.Parameters.AddWithValue("@platform", platform);
-                cmd.Parameters.AddWithValue("@product", product);
-                cmd.Parameters.AddWithValue("@deadline", deadline);
-                cmd.Parameters.AddWithValue("@summary", summary);
-                cmd.Parameters.AddWithValue("@description", description);
-                cmd.Parameters.AddWithValue("@source", sourcecode);
 
-                cmd.ExecuteNonQuery();
-            }
-            catch (MySqlException ex)
-            {
-                Console.WriteLine("Error: " + ex.ToString());
-
-            }
-            finally
-            {
-                if (dbConn != null)
+                try
                 {
-                    string message = "You have successfully submitted a bug!";
-                    string title = "Bug submitted";
-                    MessageBox.Show(message, title);
-                    dbConn.Close();
+                    MySqlCommand cmd = new MySqlCommand();
+                    cmd.Connection = dbConn;
+                    cmd.CommandText = "INSERT INTO bugs(reporter, version, severity, platform, product, deadline, summary, description, source) VALUES(@reporter, @version, @severity, @platform, @product, @deadline, @summary, @description, @source)";
+                    cmd.Prepare();
+
+                    cmd.Parameters.AddWithValue("@reporter", reporter);
+                    cmd.Parameters.AddWithValue("@version", version);
+                    cmd.Parameters.AddWithValue("@severity", severity);
+                    cmd.Parameters.AddWithValue("@platform", platform);
+                    cmd.Parameters.AddWithValue("@product", product);
+                    cmd.Parameters.AddWithValue("@deadline", deadline);
+                    cmd.Parameters.AddWithValue("@summary", summary);
+                    cmd.Parameters.AddWithValue("@description", description);
+                    cmd.Parameters.AddWithValue("@source", sourcecode);
+
+                    cmd.ExecuteNonQuery();
+                }
+                catch (MySqlException ex)
+                {
+                    Console.WriteLine("Error: " + ex.ToString());
+
+                }
+                finally
+                {
+                    if (dbConn != null)
+                    {
+                        string message = "You have successfully submitted a bug!";
+                        string title = "Bug submitted";
+                        MessageBox.Show(message, title);
+                        dbConn.Close();
+                    }
                 }
             }
         }
@@ -165,6 +164,22 @@ namespace Bug_Tracking
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void comboBox1_Validating(object sender, CancelEventArgs e)
+        {
+            if(comboBox1.SelectedIndex == 0)
+            {
+                e.Cancel = true;
+
+                errorProvider.SetError(comboBox1, "Please select a product!");
+
+            }
+            else
+            {
+                e.Cancel = true;
+                errorProvider.SetError(comboBox1, null);
+            }
         }
     }
 }
