@@ -16,6 +16,7 @@ namespace Bug_Tracking
 
         MySqlConnection dbConn;
         string id="";
+        int bugid = 0;
         Boolean codeExists = false;
 
         public PreviewBug()
@@ -38,9 +39,19 @@ namespace Bug_Tracking
                 string summarytxt = rdr.GetString(7);
                 string desc = rdr.GetString(8);
                 string source = rdr.GetString(9);
+                string fixedstatus = rdr.GetString(10);
 
                 if (id == idn)
                 {
+                    if(fixedstatus.Equals("yes"))
+                    {
+                        checkBox1.Checked = true;
+                    }
+                    else
+                    {
+                        checkBox1.Checked = false;
+                    }
+                    bugid = id;
                     textBox2.Text = summarytxt;
                     textBox1.Text = desc;
                     if(source.Equals(""))
@@ -55,6 +66,7 @@ namespace Bug_Tracking
                     break;
                 }
             }
+            dbConn.Close();
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -90,5 +102,53 @@ namespace Bug_Tracking
             }
 
         }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void checkBox1_Click(object sender, EventArgs e)
+        {
+            dbConn.Open();
+                try
+                {
+                    string fixedstatus = "";
+                    if(checkBox1.Checked)
+                    {
+                        fixedstatus = "yes";
+                    }
+                    else
+                    {
+                        fixedstatus = "no";
+                    }
+                    MySqlCommand cmd = new MySqlCommand();
+                    cmd.Connection = dbConn;
+                    cmd.CommandText = "UPDATE bugs SET fixed = @fixed WHERE bugid = @bugid";
+                    cmd.Prepare();
+
+                    cmd.Parameters.AddWithValue("@fixed", fixedstatus);
+                    cmd.Parameters.AddWithValue("@bugid", bugid);
+                    cmd.ExecuteNonQuery();
+                }
+                catch (MySqlException ex)
+                {
+                    Console.WriteLine("Error: " + ex.ToString());
+
+                }
+                finally
+                {
+                    if (dbConn != null)
+                    {
+                        string message = "Bug fixed status was updated succesfully!";
+                        string title = "Bug updated";
+                        MessageBox.Show(message, title);
+                        dbConn.Close();
+                    }
+                }
+
+            }
+
+        
     }
 }

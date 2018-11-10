@@ -32,6 +32,7 @@ namespace Bug_Tracking
             }
             textEditorControl1.SetHighlighting("C#");
             textEditorControl1.Text = code;
+            textEditorControl1.IsReadOnly = true;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
