@@ -54,6 +54,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddDeveloperDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddDeveloperDetails.Designer.cs">
+      <DependentUpon>AddDeveloperDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddNewBug.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +118,9 @@
     <Compile Include="ViewBugs.Designer.cs">
       <DependentUpon>ViewBugs.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddDeveloperDetails.resx">
+      <DependentUpon>AddDeveloperDetails.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddNewBug.resx">
       <DependentUpon>AddNewBug.cs</DependentUpon>
     </EmbeddedResource>

@@ -17,7 +17,7 @@ namespace Bug_Tracking
         MySqlConnection dbConn;
         string id="";
         int bugid = 0;
-        Boolean codeExists = false;
+        public static Boolean codeExists = false;
 
         public PreviewBug()
         {
@@ -149,6 +149,10 @@ namespace Bug_Tracking
 
             }
 
-        
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form addDev = new AddDeveloperDetails();
+            addDev.Show();
+        }
     }
 }
