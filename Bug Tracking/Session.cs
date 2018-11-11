@@ -16,6 +16,7 @@ namespace Bug_Tracking
         public static byte[] imageData = null;
         public static string fixedstatus = "no";
         public static string solutionExists = "no";
-
+        public static string searchBy = null;
+        public static string searchTerm = null;
     }
 }

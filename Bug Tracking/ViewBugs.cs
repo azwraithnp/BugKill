@@ -31,38 +31,107 @@ namespace Bug_Tracking
 
         private void ViewBugs_Load(object sender, EventArgs e)
         {
-
-            string stm = "SELECT * FROM bugs";
-            MySql.Data.MySqlClient.MySqlCommand cmd = new MySql.Data.MySqlClient.MySqlCommand(stm, dbConn);
-            MySql.Data.MySqlClient.MySqlDataReader rdr = cmd.ExecuteReader();
-
-            ImageList imageList = new ImageList();
-            while (rdr.Read())
+            if (Session.searchBy != null)
             {
-                int id = rdr.GetInt32(0);
-                string reporter = rdr.GetString(1);
-                string version = rdr.GetString(2);
-                string severity = rdr.GetString(3);
-                string platform = rdr.GetString(4);
-                string product = rdr.GetString(5);
-                string deadline = rdr.GetString(6);
-                string fixeds = rdr.GetString(10);
-                
-                //imageList.Images.Add(Image.FromFile(@"../../forward.png"));
-                //listView1.LargeImageList = imageList;
-                //listView1.SmallImageList = imageList;
+                 try
+                {
+                    MySqlCommand cmd = new MySqlCommand();
+                    cmd.Connection = dbConn;
 
-                var collection = new string[] {id + "", reporter, version, severity, platform, product, deadline, fixeds };
-                var lvl = new ListViewItem(collection);
+                    if(Session.searchBy.Equals("bugid"))
+                    {
+                        cmd.CommandText = "SELECT * FROM bugs WHERE bugid = @selectTerm";
+                    }
+                    else if(Session.searchBy.Equals("reporter"))
+                    {
+                        cmd.CommandText = "SELECT * FROM bugs WHERE reporter = @selectTerm";
+                    }
+                    else if(Session.searchBy.Equals("version"))
+                    {
+                        cmd.CommandText = "SELECT * FROM bugs WHERE version = @selectTerm";
+                    }
+                    else if(Session.searchBy.Equals("severity"))
+                    {
+                        cmd.CommandText = "SELECT * FROM bugs WHERE severity = @selectTerm";
+                    }
+                    else if(Session.searchBy.Equals("platform"))
+                    {
+                        cmd.CommandText = "SELECT * FROM bugs WHERE platform = @selectTerm";
+                    }
+                    else
+                    {
+                        cmd.CommandText = "SELECT * FROM bugs WHERE product = @selectTerm";
+                    }
+                    cmd.Prepare();
+                    
+                    cmd.Parameters.AddWithValue("@selectTerm", Session.searchTerm);
+                    MySqlDataReader rdr = cmd.ExecuteReader();
 
-                
-                listView1.Items.Add(lvl);
+                    while (rdr.Read())
+                    {
+                        Console.WriteLine("Search activated");
 
-                
+                        int id = rdr.GetInt32(0);
+                        string reporter = rdr.GetString(1);
+                        string version = rdr.GetString(2);
+                        string severity = rdr.GetString(3);
+                        string platform = rdr.GetString(4);
+                        string product = rdr.GetString(5);
+                        string deadline = rdr.GetString(6);
+                        string fixeds = rdr.GetString(10);
+
+                        //imageList.Images.Add(Image.FromFile(@"../../forward.png"));
+                        //listView1.LargeImageList = imageList;
+                        //listView1.SmallImageList = imageList;
+
+                        var collection = new string[] { id + "", product, reporter, version, severity, platform, deadline, fixeds };
+                        var lvl = new ListViewItem(collection);
+
+
+                        listView1.Items.Add(lvl);
+
+                    }
+
+                }
+
+                catch (MySqlException ex)
+                {
+                    Console.WriteLine("Error: " + ex.ToString());
+
+                }
             }
-            
-            dbConn.Close();
+            else
+            {
+                string stm = "SELECT * FROM bugs";
+                MySql.Data.MySqlClient.MySqlCommand cmd = new MySql.Data.MySqlClient.MySqlCommand(stm, dbConn);
+                MySql.Data.MySqlClient.MySqlDataReader rdr = cmd.ExecuteReader();
 
+                while (rdr.Read())
+                {
+                    int id = rdr.GetInt32(0);
+                    string reporter = rdr.GetString(1);
+                    string version = rdr.GetString(2);
+                    string severity = rdr.GetString(3);
+                    string platform = rdr.GetString(4);
+                    string product = rdr.GetString(5);
+                    string deadline = rdr.GetString(6);
+                    string fixeds = rdr.GetString(10);
+
+                    //imageList.Images.Add(Image.FromFile(@"../../forward.png"));
+                    //listView1.LargeImageList = imageList;
+                    //listView1.SmallImageList = imageList;
+
+                    var collection = new string[] { id + "", product, reporter, version, severity, platform, deadline, fixeds };
+                    var lvl = new ListViewItem(collection);
+
+
+                    listView1.Items.Add(lvl);
+
+
+                }
+
+                dbConn.Close();
+            }
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)

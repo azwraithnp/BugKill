@@ -103,8 +103,8 @@
             // requestReportToolStripMenuItem
             // 
             this.requestReportToolStripMenuItem.Name = "requestReportToolStripMenuItem";
-            this.requestReportToolStripMenuItem.Size = new System.Drawing.Size(136, 20);
-            this.requestReportToolStripMenuItem.Text = "Request/Search report";
+            this.requestReportToolStripMenuItem.Size = new System.Drawing.Size(125, 20);
+            this.requestReportToolStripMenuItem.Text = "Request/Search Bug";
             this.requestReportToolStripMenuItem.Click += new System.EventHandler(this.requestReportToolStripMenuItem_Click);
             // 
             // logoutToolStripMenuItem

@@ -79,7 +79,17 @@ namespace Bug_Tracking
 
         private void requestReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            if (Session.session_name != null)
+            {
+                Form searchBug = new SearchBug();
+                searchBug.Show();
+            }
+            else
+            {
+                MessageBox.Show("Please login first.", "Login required");
+                Form login = new Login();
+                login.Show();
+            }
         }
 
         private void Home_Load(object sender, EventArgs e)

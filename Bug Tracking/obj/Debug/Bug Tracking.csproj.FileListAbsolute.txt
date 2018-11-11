@@ -27,3 +27,8 @@ C:\Users\Avinash Mishra\source\repos\Bug Tracking\Bug Tracking\obj\Debug\Bug_Tra
 C:\Users\Avinash Mishra\source\repos\Bug Tracking\Bug Tracking\obj\Debug\Bug_Tracking.ViewScreenshot.resources
 C:\Users\Avinash Mishra\source\repos\Bug Tracking\Bug Tracking\obj\Debug\Bug_Tracking.ProvideSolution.resources
 C:\Users\Avinash Mishra\source\repos\Bug Tracking\Bug Tracking\obj\Debug\Bug_Tracking.ViewSolution.resources
+C:\Users\Avinash Mishra\source\repos\Bug Tracking\Bug Tracking\bin\Debug\WebDriver.dll
+C:\Users\Avinash Mishra\source\repos\Bug Tracking\Bug Tracking\bin\Debug\WebDriver.Support.dll
+C:\Users\Avinash Mishra\source\repos\Bug Tracking\Bug Tracking\bin\Debug\WebDriver.xml
+C:\Users\Avinash Mishra\source\repos\Bug Tracking\Bug Tracking\bin\Debug\WebDriver.Support.xml
+C:\Users\Avinash Mishra\source\repos\Bug Tracking\Bug Tracking\obj\Debug\Bug_Tracking.SearchBug.resources

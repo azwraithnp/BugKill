@@ -56,6 +56,7 @@ namespace Bug_Tracking
                 fsmp = new FileSyntaxModeProvider(dirc);
                 HighlightingManager.Manager.AddSyntaxModeFileProvider(fsmp);
             }
+
             textEditorControl1.SetHighlighting("C#");
             textEditorControl1.IsReadOnly = true;
         }
