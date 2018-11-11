@@ -84,6 +84,12 @@
     <Compile Include="PreviewCode.Designer.cs">
       <DependentUpon>PreviewCode.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProvideSolution.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProvideSolution.Designer.cs">
+      <DependentUpon>ProvideSolution.cs</DependentUpon>
+    </Compile>
     <Compile Include="Session.cs" />
     <Compile Include="Connections.cs" />
     <Compile Include="Home.cs">
@@ -130,6 +136,12 @@
     <Compile Include="ViewScreenshot.Designer.cs">
       <DependentUpon>ViewScreenshot.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewSolution.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewSolution.Designer.cs">
+      <DependentUpon>ViewSolution.cs</DependentUpon>
+    </Compile>
     <Compile Include="WriteCode.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,6 +184,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ProvideSolution.resx">
+      <DependentUpon>ProvideSolution.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ViewBugs.resx">
       <DependentUpon>ViewBugs.cs</DependentUpon>
     </EmbeddedResource>
@@ -180,6 +195,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ViewScreenshot.resx">
       <DependentUpon>ViewScreenshot.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewSolution.resx">
+      <DependentUpon>ViewSolution.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WriteCode.resx">
       <DependentUpon>WriteCode.cs</DependentUpon>

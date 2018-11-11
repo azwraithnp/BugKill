@@ -18,7 +18,7 @@ namespace Bug_Tracking
         string id="";
         int bugid = 0;
         public static Boolean codeExists = false;
-        Boolean recordExists = false, imageExists = false;
+        Boolean recordExists = false, imageExists = false, solutionExists = false;
 
         public PreviewBug()
         {
@@ -67,6 +67,7 @@ namespace Bug_Tracking
                     if(fixedstatus.Equals("yes"))
                     {
                         checkBox1.Checked = true;
+                        Session.fixedstatus = "yes"; 
                     }
                     else
                     {
@@ -80,6 +81,8 @@ namespace Bug_Tracking
                 }
             }
             dbConn.Close();
+
+
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -89,7 +92,21 @@ namespace Bug_Tracking
 
         private void PreviewBug_Load(object sender, EventArgs e)
         {
+            dbConn.Open();
+            string stm = "SELECT * FROM bugs_solutions";
+            MySql.Data.MySqlClient.MySqlCommand cmd = new MySql.Data.MySqlClient.MySqlCommand(stm, dbConn);
+            MySql.Data.MySqlClient.MySqlDataReader rdr = cmd.ExecuteReader();
 
+            while(rdr.Read())
+            {
+                int id = rdr.GetInt32(0);
+                if(bugid == id)
+                {
+                    Session.solutionExists = "yes";
+                    solutionExists = true;
+                }
+            }
+            dbConn.Close();
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -166,6 +183,19 @@ namespace Bug_Tracking
         {
             Form addDev = new AddDeveloperDetails();
             addDev.Show();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if(solutionExists)
+            {
+                Form viewSolution = new ViewSolution();
+                viewSolution.Show();
+            }
+            else
+            {
+                MessageBox.Show("Sorry, solution is not provided for this bug yet.", "Solution not available");
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)

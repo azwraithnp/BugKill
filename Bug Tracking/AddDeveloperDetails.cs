@@ -173,5 +173,18 @@ namespace Bug_Tracking
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (Session.fixedstatus.Equals("yes"))
+            {
+
+            }
+            else
+            {
+                Form provideSolution = new ProvideSolution();
+                provideSolution.Show();
+            }
+        }
     }
 }
