@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Firefox;
 
 namespace Bug_Tracking
 {
@@ -129,6 +132,28 @@ namespace Bug_Tracking
                 Session.session_name = null;
                 MessageBox.Show("You have successfully logged out of the system!", "Logout successfully");
             }
+        }
+
+        private void openVCSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Session.session_name != null)
+            {
+                ChromeDriver cd = new ChromeDriver();
+                cd.Url = "https://github.com/login";
+
+                cd.FindElement(By.Id("login_field")).SendKeys("avimshra@gmail.com");
+                cd.FindElement(By.Id("password")).SendKeys("babumishra1" + OpenQA.Selenium.Keys.Enter);
+
+                cd.Url = "https://github.com/azwraithnp/BugKill";
+                cd.Manage().Window.Maximize();
+            }
+            else
+            {
+                MessageBox.Show("Please login first.", "Login required");
+                Form login = new Login();
+                login.Show();
+            }
+            
         }
     }
 }
