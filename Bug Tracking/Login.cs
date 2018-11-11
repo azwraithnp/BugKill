@@ -11,9 +11,12 @@ using System.Windows.Forms;
 namespace Bug_Tracking
 {
 
-
+    
     public partial class Login : Form
     {
+
+        Boolean userExists = false;
+
         MySql.Data.MySqlClient.MySqlConnection dbConn;
         String username, password;
 
@@ -122,13 +125,19 @@ namespace Bug_Tracking
                         string message = "You have logged in as " + type + "!";
                         string title = "Login Successful";
                         MessageBox.Show(message, title);
+                        userExists = true;
                         dbConn.Close();
                         this.Close();
                         break;
                     }
                 }
 
-                MessageBox.Show("Invalid credentials", "Login Error");
+                if(!userExists)
+                {
+                    dbConn.Close();
+                    MessageBox.Show("Invalid credentials", "Login Error");
+                }
+                
             }
         }
     }

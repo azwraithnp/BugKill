@@ -18,7 +18,7 @@ namespace Bug_Tracking
         string id="";
         int bugid = 0;
         public static Boolean codeExists = false;
-        Boolean recordExists = false;
+        Boolean recordExists = false, imageExists = false;
 
         public PreviewBug()
         {
@@ -39,7 +39,27 @@ namespace Bug_Tracking
                 int id = rdr.GetInt32(0);
                 string summarytxt = rdr.GetString(7);
                 string desc = rdr.GetString(8);
-                string source = rdr.GetString(9);
+                try
+                {
+                    byte[] imageBytes = (byte[])rdr["image"];
+                   
+                    Session.imageData = imageBytes;
+                    imageExists = true;
+                }
+                catch(Exception e)
+                {
+                    imageExists = false;
+                }
+                try
+                {
+                    string source = rdr.GetString(9);
+                    codeExists = true;
+                    Session.code = source;
+                }
+                catch(Exception e)
+                {
+                    codeExists = false;
+                }
                 string fixedstatus = rdr.GetString(10);
 
                 if (id == idn)
@@ -55,15 +75,7 @@ namespace Bug_Tracking
                     bugid = id;
                     textBox2.Text = summarytxt;
                     textBox1.Text = desc;
-                    if(source.Equals(""))
-                    {
-                        codeExists = false;
-                    }
-                    else
-                    {
-                        codeExists = true;
-                        Session.code = source;
-                    }
+                    
                     break;
                 }
             }
@@ -154,6 +166,20 @@ namespace Bug_Tracking
         {
             Form addDev = new AddDeveloperDetails();
             addDev.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (imageExists)
+            {
+               
+                Form viewScreenshot = new ViewScreenshot();
+                viewScreenshot.Show();
+            }
+            else
+            {
+                MessageBox.Show("Sorry, bug screenshot was not submitted with this bug.", "Snapshot not available");
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)

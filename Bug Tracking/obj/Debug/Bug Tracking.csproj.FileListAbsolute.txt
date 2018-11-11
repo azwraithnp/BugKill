@@ -23,3 +23,5 @@ C:\Users\Avinash Mishra\source\repos\Bug Tracking\Bug Tracking\bin\Debug\ICSharp
 C:\Users\Avinash Mishra\source\repos\Bug Tracking\Bug Tracking\obj\Debug\Bug_Tracking.Home.resources
 C:\Users\Avinash Mishra\source\repos\Bug Tracking\Bug Tracking\obj\Debug\Bug_Tracking.AddDeveloperDetails.resources
 C:\Users\Avinash Mishra\source\repos\Bug Tracking\Bug Tracking\obj\Debug\Bug_Tracking.ViewDeveloperDetails.resources
+C:\Users\Avinash Mishra\source\repos\Bug Tracking\Bug Tracking\obj\Debug\Bug_Tracking.WriteCode.resources
+C:\Users\Avinash Mishra\source\repos\Bug Tracking\Bug Tracking\obj\Debug\Bug_Tracking.ViewScreenshot.resources

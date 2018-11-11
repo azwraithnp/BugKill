@@ -54,6 +54,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.button3 = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
@@ -61,6 +63,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button3);
+            this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.textBox6);
@@ -92,11 +96,11 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(222, 527);
+            this.button2.Location = new System.Drawing.Point(222, 581);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(181, 30);
             this.button2.TabIndex = 24;
-            this.button2.Text = "Add an attachment";
+            this.button2.Text = "Attach picture file";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -104,11 +108,11 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(32, 533);
+            this.label11.Location = new System.Drawing.Point(33, 587);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(82, 18);
+            this.label11.Size = new System.Drawing.Size(112, 18);
             this.label11.TabIndex = 23;
-            this.label11.Text = "Attachment";
+            this.label11.Text = "Bug screenshot";
             // 
             // textBox6
             // 
@@ -312,11 +316,32 @@
             // 
             this.errorProvider.ContainerControl = this;
             // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(222, 532);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(181, 30);
+            this.button3.TabIndex = 26;
+            this.button3.Text = "Enter code";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(33, 538);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(93, 18);
+            this.label12.TabIndex = 25;
+            this.label12.Text = "Source code";
+            // 
             // AddNewBug
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 695);
+            this.ClientSize = new System.Drawing.Size(800, 741);
             this.Controls.Add(this.panel1);
             this.Name = "AddNewBug";
             this.Text = "Add new bug";
@@ -355,5 +380,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label label12;
     }
 }

@@ -18,6 +18,7 @@ namespace Bug_Tracking
         
         string sourcecode = "";
         MySqlConnection dbConn;
+        byte[] imageData;
         
         public AddNewBug()
         {
@@ -65,26 +66,31 @@ namespace Bug_Tracking
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string line = "";
+            FileStream fs;
+            BinaryReader br;
+
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
-            openFileDialog1.ShowDialog();
+            openFileDialog1.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.tif;";
+           
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                StreamReader sr = new StreamReader(openFileDialog1.FileName);
-                while(line !=null)
-                {
-                    line = sr.ReadLine();
-                    if(line != null)
-                    {
 
-                        sourcecode += line + "\n";
+                string fileName = openFileDialog1.FileName;
 
-                    }
+                Console.WriteLine(fileName);
+            
+                fs = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+
+                br = new BinaryReader(fs);
+
+                imageData = br.ReadBytes((int)fs.Length);
 
 
-                }
-                    
-                    
+                br.Close();
+
+                fs.Close();
+                
+
             }
         }
 
@@ -126,9 +132,10 @@ namespace Bug_Tracking
 
                 try
                 {
+                    sourcecode = Session.writtencode;
                     MySqlCommand cmd = new MySqlCommand();
                     cmd.Connection = dbConn;
-                    cmd.CommandText = "INSERT INTO bugs(reporter, version, severity, platform, product, deadline, summary, description, source) VALUES(@reporter, @version, @severity, @platform, @product, @deadline, @summary, @description, @source)";
+                    cmd.CommandText = "INSERT INTO bugs(reporter, version, severity, platform, product, deadline, summary, description, source, image) VALUES(@reporter, @version, @severity, @platform, @product, @deadline, @summary, @description, @source, @image)";
                     cmd.Prepare();
 
                     cmd.Parameters.AddWithValue("@reporter", reporter);
@@ -140,6 +147,7 @@ namespace Bug_Tracking
                     cmd.Parameters.AddWithValue("@summary", summary);
                     cmd.Parameters.AddWithValue("@description", description);
                     cmd.Parameters.AddWithValue("@source", sourcecode);
+                    cmd.Parameters.AddWithValue("@image", imageData);
 
                     cmd.ExecuteNonQuery();
                 }
@@ -180,6 +188,12 @@ namespace Bug_Tracking
         private void comboBox1_Validating(object sender, CancelEventArgs e)
         {
             
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Form writeCode = new WriteCode();
+            writeCode.Show();
         }
     }
 }

@@ -124,6 +124,18 @@
     <Compile Include="ViewDeveloperDetails.Designer.cs">
       <DependentUpon>ViewDeveloperDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewScreenshot.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewScreenshot.Designer.cs">
+      <DependentUpon>ViewScreenshot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WriteCode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WriteCode.Designer.cs">
+      <DependentUpon>WriteCode.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AddDeveloperDetails.resx">
       <DependentUpon>AddDeveloperDetails.cs</DependentUpon>
     </EmbeddedResource>
@@ -165,6 +177,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ViewDeveloperDetails.resx">
       <DependentUpon>ViewDeveloperDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewScreenshot.resx">
+      <DependentUpon>ViewScreenshot.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WriteCode.resx">
+      <DependentUpon>WriteCode.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
