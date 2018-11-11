@@ -11,7 +11,7 @@ using System.Windows.Forms;
 namespace Bug_Tracking
 {
 
-    
+
     public partial class Login : Form
     {
         MySql.Data.MySqlClient.MySqlConnection dbConn;
@@ -87,34 +87,50 @@ namespace Bug_Tracking
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("MySQL version : {0}", dbConn.ServerVersion);
-            username = textBox1.Text.ToString();
-            password = textBox2.Text.ToString();
-            Console.WriteLine(username + password);
-
-            string stm = "SELECT * FROM users";
-            MySql.Data.MySqlClient.MySqlCommand cmd = new MySql.Data.MySqlClient.MySqlCommand(stm, dbConn);
-            MySql.Data.MySqlClient.MySqlDataReader rdr = cmd.ExecuteReader();
-
-            while (rdr.Read())
+            if (textBox1.Text.ToString().Length == 0)
             {
-                int id = rdr.GetInt32(0);
-                string user = rdr.GetString(1);
-                string pass = rdr.GetString(2);
-                string type = rdr.GetString(3);
-               
-                if (user.Equals(username) && pass.Equals(password))
+                errorProvider.SetError(textBox1, "Username cannot be empty!");
+            }
+            else if (textBox2.Text.ToString().Length == 0)
+            {
+                errorProvider.SetError(textBox1, null);
+                errorProvider.SetError(textBox2, "Password cannot be empty!");
+            }
+            else
+            {
+                errorProvider.SetError(textBox2, null);
+                Console.WriteLine("MySQL version : {0}", dbConn.ServerVersion);
+                username = textBox1.Text.ToString();
+                password = textBox2.Text.ToString();
+                Console.WriteLine(username + password);
+
+                string stm = "SELECT * FROM users";
+                MySql.Data.MySqlClient.MySqlCommand cmd = new MySql.Data.MySqlClient.MySqlCommand(stm, dbConn);
+                MySql.Data.MySqlClient.MySqlDataReader rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
                 {
-                    Console.WriteLine("Logged In!");
-                    Session.session_name = user;
-                    string message = "You have logged in as " + type + "!";
-                    string title = "Login Successful";
-                    MessageBox.Show(message, title);
-                    this.Close();
-                    break;
+                    int id = rdr.GetInt32(0);
+                    string user = rdr.GetString(1);
+                    string pass = rdr.GetString(2);
+                    string type = rdr.GetString(3);
+
+                    if (user.Equals(username) && pass.Equals(password))
+                    {
+                        Console.WriteLine("Logged In!");
+                        Session.session_name = user;
+                        string message = "You have logged in as " + type + "!";
+                        string title = "Login Successful";
+                        MessageBox.Show(message, title);
+                        dbConn.Close();
+                        this.Close();
+                        break;
+                    }
                 }
-                }
+
+                MessageBox.Show("Invalid credentials", "Login Error");
             }
         }
     }
+}
 

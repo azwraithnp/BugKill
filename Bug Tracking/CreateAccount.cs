@@ -74,14 +74,23 @@ namespace Bug_Tracking
                 errorProvider.SetError(comboBox1, "Please select an account type!");
 
             }
-            else
+            else if(textBox1.Text.ToString().Length == 0)
             {
                 errorProvider.SetError(comboBox1, null);
+                errorProvider.SetError(textBox1, "Username cannot be empty!");
+            }
+            else if(textBox2.Text.ToString().Length == 0)
+            {
+                errorProvider.SetError(textBox1, null);
+                errorProvider.SetError(textBox2, "Password cannot be empty!");
+            }
+            else
+            {
+                errorProvider.SetError(textBox2, null);
                 Console.WriteLine("MySQL version : {0}", dbConn.ServerVersion);
                 string username = textBox1.Text.ToString();
                 string password = textBox2.Text.ToString();
                 string usertype = comboBox1.SelectedItem.ToString();
-
                 try
                 {
                     MySqlCommand cmd = new MySqlCommand();

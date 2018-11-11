@@ -50,8 +50,15 @@ namespace Bug_Tracking
 
         private void homeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form login = new Login();
-            login.Show();
+            if (Session.session_name != null)
+            {
+                MessageBox.Show("You are already logged in.", "Logged in");
+            }
+            else
+            {
+                Form login = new Login();
+                login.Show();
+            }
         }
 
         private void addNewBugToolStripMenuItem_Click_1(object sender, EventArgs e)
