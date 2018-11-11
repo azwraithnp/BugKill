@@ -18,6 +18,9 @@ namespace Bug_Tracking
         public CreateAccount()
         {
             InitializeComponent();
+            Connections conn = new Connections();
+            dbConn = conn.initializeConn();
+            dbConn.Open();
 
             comboBox1.Items.Insert(0, "Select an account type");
             comboBox1.SelectedIndex = 0;
@@ -25,9 +28,7 @@ namespace Bug_Tracking
             comboBox1.Items.Add("Black box Tester");
             comboBox1.Items.Add("White box Tester");
             comboBox1.Items.Add("Programmer/Developer");
-            Connections conn = new Connections();
-            dbConn = conn.initializeConn();
-            dbConn.Open();
+            
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -67,12 +68,19 @@ namespace Bug_Tracking
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (ValidateChildren(ValidationConstraints.Enabled))
+            if (comboBox1.SelectedIndex == 0)
             {
+
+                errorProvider.SetError(comboBox1, "Please select an account type!");
+
+            }
+            else
+            {
+                errorProvider.SetError(comboBox1, null);
                 Console.WriteLine("MySQL version : {0}", dbConn.ServerVersion);
                 string username = textBox1.Text.ToString();
                 string password = textBox2.Text.ToString();
-                string usertype = comboBox1.SelectedValue.ToString();
+                string usertype = comboBox1.SelectedItem.ToString();
 
                 try
                 {
@@ -102,6 +110,7 @@ namespace Bug_Tracking
                     }
                 }
             }
+            
         }
 
         private void CreateAccount_Load(object sender, EventArgs e)
@@ -122,18 +131,7 @@ namespace Bug_Tracking
         private void comboBox1_Validating(object sender, CancelEventArgs e)
         {
             
-            if(comboBox1.SelectedIndex == 0)
-            {
-                e.Cancel = true;
-               
-                errorProvider.SetError(comboBox1, "Please select an account type!");
-
-            }
-            else
-            {
-                e.Cancel = true;
-                errorProvider.SetError(comboBox1, null);
-            }
+            
         }
     }
 }

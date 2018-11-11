@@ -74,5 +74,44 @@ namespace Bug_Tracking
         {
 
         }
+
+        private void Home_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Form login = new Login();
+            login.Show();
+        }
+
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Session.session_name == null)
+            {
+                MessageBox.Show("You are not logged in currently.", "Not logged in");
+            }
+            else
+            {
+                Session.session_name = null;
+                MessageBox.Show("You have successfully logged out of the system!", "Logout successfully");
+            }
+        }
     }
 }

@@ -100,8 +100,18 @@ namespace Bug_Tracking
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (ValidateChildren(ValidationConstraints.Enabled))
+            if (comboBox1.SelectedIndex == 0)
             {
+
+
+                errorProvider.SetError(comboBox1, "Please select a product!");
+
+            }
+            else
+            {
+
+                errorProvider.SetError(comboBox1, null);
+            
                 dbConn.Open();
                 Console.WriteLine("MySQL version : {0}", dbConn.ServerVersion);
                 string reporter = textBox2.Text.ToString();
@@ -148,6 +158,7 @@ namespace Bug_Tracking
                         dbConn.Close();
                     }
                 }
+
             }
         }
 
@@ -168,18 +179,7 @@ namespace Bug_Tracking
 
         private void comboBox1_Validating(object sender, CancelEventArgs e)
         {
-            if(comboBox1.SelectedIndex == 0)
-            {
-                e.Cancel = true;
-
-                errorProvider.SetError(comboBox1, "Please select a product!");
-
-            }
-            else
-            {
-                e.Cancel = true;
-                errorProvider.SetError(comboBox1, null);
-            }
+            
         }
     }
 }
