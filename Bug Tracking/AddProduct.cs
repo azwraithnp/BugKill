@@ -11,6 +11,10 @@ using System.Windows.Forms;
 
 namespace Bug_Tracking
 {
+
+    /// <summary>
+    /// Creates a form that allows user to add new product to the system
+    /// </summary>
     public partial class AddProduct : Form
     {
         MySql.Data.MySqlClient.MySqlConnection dbConn;

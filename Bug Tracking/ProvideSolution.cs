@@ -13,6 +13,11 @@ using System.Windows.Forms;
 
 namespace Bug_Tracking
 {
+
+
+    /// <summary>
+    /// Creates a form that allows user or programmer to provide a solution to the bug
+    /// </summary>
     public partial class ProvideSolution : Form
     {
         Boolean solutionExists = false;

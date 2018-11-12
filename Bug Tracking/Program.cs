@@ -11,7 +11,6 @@ namespace Bug_Tracking
 {
 
     
-
     static class Program
     {
         
@@ -22,12 +21,8 @@ namespace Bug_Tracking
         [STAThread]
         static void Main()
         {
-            //MySql.Data.MySqlClient.MySqlConnection dbConn;
+            /* Initializes the application entry point and runs the Home form */
 
-            //Connections conn = new Connections();
-            //dbConn = conn.initializeConn();
-            //dbConn.Open();
-            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Home());

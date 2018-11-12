@@ -13,6 +13,9 @@ using System.Windows.Forms;
 namespace Bug_Tracking
 {
 
+    /// <summary>
+    /// Creates a form that allows user to add new bug to the system
+    /// </summary>
     public partial class AddNewBug : Form
     {
         

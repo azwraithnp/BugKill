@@ -13,9 +13,13 @@ using System.Windows.Forms;
 
 namespace Bug_Tracking
 {
+
+
+    /// <summary>
+    /// Creates a form that allows user to preview code submittied with the bug
+    /// </summary>
     public partial class PreviewCode : Form
     {
-        
         
         public PreviewCode()
         {

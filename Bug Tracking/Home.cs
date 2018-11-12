@@ -13,6 +13,10 @@ using OpenQA.Selenium.Firefox;
 
 namespace Bug_Tracking
 {
+
+    /// <summary>
+    /// Creates an MDI form that serves as the entry point in the application
+    /// </summary>
     public partial class Home : Form
     {
         public Home()

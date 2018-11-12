@@ -11,6 +11,10 @@ using System.Windows.Forms;
 
 namespace Bug_Tracking
 {
+
+    /// <summary>
+    /// Form that allows user or programmer to enter technical or developer details for the bug
+    /// </summary>
     public partial class AddDeveloperDetails : Form
     {
         MySqlConnection dbConn;

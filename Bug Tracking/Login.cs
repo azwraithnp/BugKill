@@ -11,7 +11,9 @@ using System.Windows.Forms;
 namespace Bug_Tracking
 {
 
-    
+    /// <summary>
+    /// Creates a login for users to ente the system and use its featues
+    /// </summary>
     public partial class Login : Form
     {
 
