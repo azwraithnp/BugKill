@@ -13,6 +13,10 @@ using System.Windows.Forms;
 
 namespace Bug_Tracking
 {
+
+    /// <summary>
+    /// Creates a form that displays solution for the bug if it exists
+    /// </summary>
     public partial class ViewSolution : Form
     {
         MySqlConnection dbConn;

@@ -11,6 +11,10 @@ using System.Windows.Forms;
 
 namespace Bug_Tracking
 {
+
+    /// <summary>
+    /// Creates a form that displays list of all bugs in the system
+    /// </summary>
     public partial class ViewBugs : Form
     {
         MySqlConnection dbConn; 

@@ -10,6 +10,10 @@ using System.Windows.Forms;
 
 namespace Bug_Tracking
 {
+
+    /// <summary>
+    /// Creates a form that allows user to search for specific bugs in the system
+    /// </summary>
     public partial class SearchBug : Form
     {
         public SearchBug()
