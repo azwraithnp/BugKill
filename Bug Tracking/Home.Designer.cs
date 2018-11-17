@@ -35,6 +35,7 @@
             this.addNewProductToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addNewBugToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.requestReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openVCSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
@@ -49,7 +50,7 @@
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.openVCSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.analyticsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -67,6 +68,7 @@
             this.addNewBugToolStripMenuItem,
             this.requestReportToolStripMenuItem,
             this.openVCSToolStripMenuItem,
+            this.analyticsToolStripMenuItem,
             this.logoutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -108,6 +110,13 @@
             this.requestReportToolStripMenuItem.Size = new System.Drawing.Size(125, 20);
             this.requestReportToolStripMenuItem.Text = "Request/Search Bug";
             this.requestReportToolStripMenuItem.Click += new System.EventHandler(this.requestReportToolStripMenuItem_Click);
+            // 
+            // openVCSToolStripMenuItem
+            // 
+            this.openVCSToolStripMenuItem.Name = "openVCSToolStripMenuItem";
+            this.openVCSToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
+            this.openVCSToolStripMenuItem.Text = "Open VCS";
+            this.openVCSToolStripMenuItem.Click += new System.EventHandler(this.openVCSToolStripMenuItem_Click);
             // 
             // logoutToolStripMenuItem
             // 
@@ -255,12 +264,12 @@
             this.label4.Text = "Welcome to BugKill. An interactive platform where u can manage and deal with thos" +
     "e annoying bugs you face in your software or development process. ";
             // 
-            // openVCSToolStripMenuItem
+            // analyticsToolStripMenuItem
             // 
-            this.openVCSToolStripMenuItem.Name = "openVCSToolStripMenuItem";
-            this.openVCSToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
-            this.openVCSToolStripMenuItem.Text = "Open VCS";
-            this.openVCSToolStripMenuItem.Click += new System.EventHandler(this.openVCSToolStripMenuItem_Click);
+            this.analyticsToolStripMenuItem.Name = "analyticsToolStripMenuItem";
+            this.analyticsToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
+            this.analyticsToolStripMenuItem.Text = "Analytics";
+            this.analyticsToolStripMenuItem.Click += new System.EventHandler(this.analyticsToolStripMenuItem_Click);
             // 
             // Home
             // 
@@ -309,6 +318,7 @@
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openVCSToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem analyticsToolStripMenuItem;
     }
 }
 

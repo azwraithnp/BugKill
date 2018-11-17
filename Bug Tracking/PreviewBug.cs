@@ -64,7 +64,7 @@ namespace Bug_Tracking
                 {
                     codeExists = false;
                 }
-                string fixedstatus = rdr.GetString(10);
+                string fixedstatus = rdr.GetString(11);
 
                 if (id == idn)
                 {

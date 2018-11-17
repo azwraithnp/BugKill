@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
@@ -19,9 +20,21 @@ namespace Bug_Tracking
     /// </summary>
     public partial class Home : Form
     {
+        MySqlConnection dbConn;
+
         public Home()
         {
             InitializeComponent();
+            Connections conn = new Connections();
+            dbConn = conn.initializeConn();
+            try
+            {
+                dbConn.Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Warning: mySQL database is not connected. Functional database is required to use this application properly. Please open it before continuing otherwise the app may crash!\n\nError message: " + ex, "Database not connected");
+            }
         }
         
 
@@ -158,6 +171,21 @@ namespace Bug_Tracking
                 login.Show();
             }
             
+        }
+
+        private void analyticsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Session.session_name != null)
+            {
+                Form analytics = new Analytics();
+                analytics.Show();
+            }
+            else
+            {
+                MessageBox.Show("Please login first.", "Login required");
+                Form login = new Login();
+                login.Show();
+            }
         }
     }
 }

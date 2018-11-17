@@ -32,3 +32,7 @@ C:\Users\Avinash Mishra\source\repos\Bug Tracking\Bug Tracking\bin\Debug\WebDriv
 C:\Users\Avinash Mishra\source\repos\Bug Tracking\Bug Tracking\bin\Debug\WebDriver.xml
 C:\Users\Avinash Mishra\source\repos\Bug Tracking\Bug Tracking\bin\Debug\WebDriver.Support.xml
 C:\Users\Avinash Mishra\source\repos\Bug Tracking\Bug Tracking\obj\Debug\Bug_Tracking.SearchBug.resources
+C:\Users\Avinash Mishra\source\repos\Bug Tracking\Bug Tracking\obj\Debug\Bug_Tracking.NumBugs.resources
+C:\Users\Avinash Mishra\source\repos\Bug Tracking\Bug Tracking\obj\Debug\Bug_Tracking.FixedUnfixed.resources
+C:\Users\Avinash Mishra\source\repos\Bug Tracking\Bug Tracking\obj\Debug\Bug_Tracking.ProPro.resources
+C:\Users\Avinash Mishra\source\repos\Bug Tracking\Bug Tracking\obj\Debug\Bug_Tracking.Analytics.resources

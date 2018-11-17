@@ -67,7 +67,6 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Please fill up the fields below to add developer/technical details to the code or" +
     " project provided with the bug.";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // linkLabel1
             // 
@@ -108,7 +107,6 @@
             this.label2.Size = new System.Drawing.Size(381, 18);
             this.label2.TabIndex = 13;
             this.label2.Text = "Details for the bug located at specific portion of the code.";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // textBox1
             // 
@@ -153,7 +151,6 @@
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(181, 24);
             this.textBox4.TabIndex = 19;
-            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // label7
             // 
@@ -239,7 +236,6 @@
             this.Controls.Add(this.label1);
             this.Name = "AddDeveloperDetails";
             this.Text = "Developer details";
-            this.Load += new System.EventHandler(this.AddDeveloperDetails_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -38,8 +38,9 @@
             this.chseverity = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chplatform = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chdeadline = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.label2 = new System.Windows.Forms.Label();
             this.chfixed = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label2 = new System.Windows.Forms.Label();
+            this.chdate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // label1
@@ -74,10 +75,11 @@
             this.chversion,
             this.chseverity,
             this.chplatform,
+            this.chdate,
             this.chdeadline,
             this.chfixed});
             this.listView1.GridLines = true;
-            this.listView1.Location = new System.Drawing.Point(12, 164);
+            this.listView1.Location = new System.Drawing.Point(16, 164);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(772, 301);
             this.listView1.TabIndex = 7;
@@ -93,7 +95,7 @@
             // chproduct
             // 
             this.chproduct.Text = "Product";
-            this.chproduct.Width = 129;
+            this.chproduct.Width = 95;
             // 
             // chreporter
             // 
@@ -108,17 +110,23 @@
             // chseverity
             // 
             this.chseverity.Text = "Severity";
-            this.chseverity.Width = 121;
+            this.chseverity.Width = 72;
             // 
             // chplatform
             // 
             this.chplatform.Text = "Platform";
-            this.chplatform.Width = 120;
+            this.chplatform.Width = 96;
             // 
             // chdeadline
             // 
+            this.chdeadline.DisplayIndex = 6;
             this.chdeadline.Text = "Deadline";
             this.chdeadline.Width = 121;
+            // 
+            // chfixed
+            // 
+            this.chfixed.Text = "Fixed";
+            this.chfixed.Width = 40;
             // 
             // label2
             // 
@@ -131,10 +139,11 @@
             this.label2.Text = "TIP: To view a bug in detail click on its ID number";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
-            // chfixed
+            // chdate
             // 
-            this.chfixed.Text = "Fixed";
-            this.chfixed.Width = 70;
+            this.chdate.DisplayIndex = 5;
+            this.chdate.Text = "Date recorded";
+            this.chdate.Width = 114;
             // 
             // ViewBugs
             // 
@@ -166,5 +175,6 @@
         private System.Windows.Forms.ColumnHeader chdeadline;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ColumnHeader chfixed;
+        private System.Windows.Forms.ColumnHeader chdate;
     }
 }

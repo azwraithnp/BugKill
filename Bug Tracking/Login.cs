@@ -27,13 +27,6 @@ namespace Bug_Tracking
             InitializeComponent();
             Connections conn = new Connections();
             dbConn = conn.initializeConn();
-            dbConn.Open();
-
-        }
-
-        private void Form2_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -92,6 +85,7 @@ namespace Bug_Tracking
 
         private void button1_Click(object sender, EventArgs e)
         {
+            dbConn.Open();
             if (textBox1.Text.ToString().Length == 0)
             {
                 errorProvider.SetError(textBox1, "Username cannot be empty!");
@@ -136,8 +130,8 @@ namespace Bug_Tracking
 
                 if(!userExists)
                 {
-                    dbConn.Close();
                     MessageBox.Show("Invalid credentials", "Login Error");
+                    dbConn.Close();
                 }
                 
             }

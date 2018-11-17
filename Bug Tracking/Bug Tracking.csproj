@@ -43,6 +43,7 @@
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -80,6 +81,24 @@
     <Compile Include="AddProduct.Designer.cs">
       <DependentUpon>AddProduct.cs</DependentUpon>
     </Compile>
+    <Compile Include="Analytics.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Analytics.Designer.cs">
+      <DependentUpon>Analytics.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FixedUnfixed.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FixedUnfixed.Designer.cs">
+      <DependentUpon>FixedUnfixed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NumBugs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NumBugs.Designer.cs">
+      <DependentUpon>NumBugs.cs</DependentUpon>
+    </Compile>
     <Compile Include="PreviewBug.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +110,12 @@
     </Compile>
     <Compile Include="PreviewCode.Designer.cs">
       <DependentUpon>PreviewCode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProPro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProPro.Designer.cs">
+      <DependentUpon>ProPro.cs</DependentUpon>
     </Compile>
     <Compile Include="ProvideSolution.cs">
       <SubType>Form</SubType>
@@ -171,6 +196,12 @@
     <EmbeddedResource Include="AddProduct.resx">
       <DependentUpon>AddProduct.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Analytics.resx">
+      <DependentUpon>Analytics.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FixedUnfixed.resx">
+      <DependentUpon>FixedUnfixed.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
@@ -182,6 +213,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MDIParent1.resx">
       <DependentUpon>MDIParent1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NumBugs.resx">
+      <DependentUpon>NumBugs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PreviewBug.resx">
       <DependentUpon>PreviewBug.cs</DependentUpon>
@@ -198,6 +232,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ProPro.resx">
+      <DependentUpon>ProPro.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ProvideSolution.resx">
       <DependentUpon>ProvideSolution.cs</DependentUpon>
     </EmbeddedResource>

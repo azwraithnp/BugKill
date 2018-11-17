@@ -11,36 +11,54 @@ using System.Windows.Forms;
 
 namespace Bug_Tracking
 {
-
     /// <summary>
     /// Form that allows user or programmer to enter technical or developer details for the bug
     /// </summary>
     public partial class AddDeveloperDetails : Form
     {
+        // Creates a class variable for mysqlconnection
         MySqlConnection dbConn;
+        // Creates a variable to check whether developer details are present for this bug
         Boolean recordExists = false;
+        // Creates an integer variable to store value for the id retrieved from Session
         int id;
 
+        //Default constructor
         public AddDeveloperDetails()
         {
+            //Creates, initializes and provides value for the designer components and their properties
             InitializeComponent();
+
+            //Stores the integer parse value to the class variable retrieved from Session
             id = (int)Single.Parse(Session.id);
+
+            /* Creates a connection object, 
+             * initializes it then opens the connection */
             Connections conn = new Connections();
+
             dbConn = conn.initializeConn();
             dbConn.Open();
+            
+            //Creates a string variable to store SQL command to retrieve data from developer details table 
             string stm = "SELECT * FROM bugs_xdetails";
+            
+            //Creates a sql command object then executes it and stores it to a mysqlreader variable
             MySql.Data.MySqlClient.MySqlCommand cmd = new MySql.Data.MySqlClient.MySqlCommand(stm, dbConn);
             MySql.Data.MySqlClient.MySqlDataReader rdr = cmd.ExecuteReader();
 
+            //Creates a loop for the mysqlreader object to retrieve table data
             while (rdr.Read())
             {
-                int bugid = rdr.GetInt32(0);
-                string author = rdr.GetString(1);
-                string classname = rdr.GetString(2);
-                string method = rdr.GetString(3);
-                string codeblock = rdr.GetString(4);
-                string linenumber = rdr.GetString(5);
+                int bugid = rdr.GetInt32(0);            //Creates a variable to store the bug id
+                string author = rdr.GetString(1);       //Creates a variable to store the code author name
+                string classname = rdr.GetString(2);    //Creates a variable to store the code class name
+                string method = rdr.GetString(3);       //Creates a variable to store the code method name
+                string codeblock = rdr.GetString(4);    //Creates a variable to store the code codeblock 
+                string linenumber = rdr.GetString(5);   //Creates a variable to store the code line numbers
 
+                /** If the current viewing bug id equals to the id in the loop,
+                 *  sets the developer details of the bug to the respective textboxes,
+                 *  sets the boolean value of recordExists to true and exits the loop */
                 if (id == bugid)
                 {
                     textBox3.Text = author;
@@ -49,19 +67,18 @@ namespace Bug_Tracking
                     textBox4.Text = codeblock;
                     textBox5.Text = linenumber;
                     button1.Text = "Update";
-                    recordExists = true;
+                    recordExists = true;                
                     break;
                 }
             }
+            
+            //Closes the connection after processing is done
             dbConn.Close();
 
     }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
+         /** Creates a method for the hyper of click code,
+         * if code exists for the current bug, opens up a form that preview the code,
+         * if code doesn't exist displays an informative messagebox to the user */
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             if (Session.code != null)
@@ -74,19 +91,15 @@ namespace Bug_Tracking
                 MessageBox.Show("Sorry, code was not submitted with this bug.", "Code not available");
             }
         }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-            
-
-            
-
-
-        }
-
+        
+        /** 
+         * Creates a method for the button to submit the developer details,
+         * stores the data entered in the textbox by the user to local variables,
+         * opens the data connection for mysql,
+         * if developer details aleady exists, updates the data otherwise inserts it into the table
+         * closes the connection after everything is done */
         private void button1_Click(object sender, EventArgs e)
         {
-            
             string author = textBox3.Text;
             string classname = textBox1.Text;
             string method = textBox2.Text;
@@ -102,9 +115,10 @@ namespace Bug_Tracking
                     MySqlCommand cmd = new MySqlCommand();
                     cmd.Connection = dbConn;
                     cmd.CommandText = "INSERT INTO bugs_xdetails(bugid, author, classname, method, codeblock, linenumber) VALUES(@bugid, @author, @classname, @method, @codeblock, @linenumber)";
-                    cmd.Prepare();
+                    cmd.Prepare();  //Prepares the mysql command before executing it
 
-                    cmd.Parameters.AddWithValue("@bugid", id);
+                    //Adds the command parameters to insert into the command
+                    cmd.Parameters.AddWithValue("@bugid", id);  
                     cmd.Parameters.AddWithValue("@author", author);
                     cmd.Parameters.AddWithValue("@classname", classname);
                     cmd.Parameters.AddWithValue("@method", method);
@@ -113,6 +127,8 @@ namespace Bug_Tracking
 
                     cmd.ExecuteNonQuery();
                 }
+         
+                //Catches the mysql exception if there is and then displays the error in the console
                 catch (MySqlException ex)
                 {
                     Console.WriteLine("Error: " + ex.ToString());
@@ -120,6 +136,8 @@ namespace Bug_Tracking
                 }
                 finally
                 {
+                
+                    //Displays success messagebox to the user if the data is saved successfully
                     if (dbConn != null)
                     {
                         string message = "You have successfully added developer details to the bug!";
@@ -167,22 +185,16 @@ namespace Bug_Tracking
             
 
         }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void AddDeveloperDetails_Load(object sender, EventArgs e)
-        {
-
-        }
-
+        
+        /** Creates a method for the provide solution button,
+         * If the bug is already fixed, opens up a form that previews the solution
+         * if the bug isn't already fixed, opens up a form to provide the solution */
         private void button2_Click(object sender, EventArgs e)
         {
             if (Session.fixedstatus.Equals("yes"))
             {
-
+                Form viewSolution = new ViewSolution();
+                viewSolution.Show();
             }
             else
             {
