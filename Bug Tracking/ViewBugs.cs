@@ -81,14 +81,15 @@ namespace Bug_Tracking
                         string severity = rdr.GetString(3);
                         string platform = rdr.GetString(4);
                         string product = rdr.GetString(5);
-                        string deadline = rdr.GetString(6);
-                        string fixeds = rdr.GetString(10);
+                        string daterec = rdr.GetString(6);
+                        string deadline = rdr.GetString(7);
+                        string fixeds = rdr.GetString(11);
 
                         //imageList.Images.Add(Image.FromFile(@"../../forward.png"));
                         //listView1.LargeImageList = imageList;
                         //listView1.SmallImageList = imageList;
 
-                        var collection = new string[] { id + "", product, reporter, version, severity, platform, deadline, fixeds };
+                        var collection = new string[] { id + "", product, reporter, version, severity, platform, daterec, deadline, fixeds };
                         var lvl = new ListViewItem(collection);
 
 

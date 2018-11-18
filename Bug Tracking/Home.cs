@@ -155,14 +155,20 @@ namespace Bug_Tracking
         {
             if (Session.session_name != null)
             {
-                ChromeDriver cd = new ChromeDriver();
+                ChromeOptions opt = new ChromeOptions();
+                opt.PageLoadStrategy = PageLoadStrategy.None;
+
+                ChromeDriver cd = new ChromeDriver(opt);
                 cd.Url = "https://github.com/login";
+                
 
                 cd.FindElement(By.Id("login_field")).SendKeys("avimshra@gmail.com");
                 cd.FindElement(By.Id("password")).SendKeys("babumishra1" + OpenQA.Selenium.Keys.Enter);
+                
 
                 cd.Url = "https://github.com/azwraithnp/BugKill";
                 cd.Manage().Window.Maximize();
+
             }
             else
             {

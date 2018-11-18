@@ -26,7 +26,6 @@ namespace Bug_Tracking
 
         public PreviewBug()
         {
-
             InitializeComponent();
             Connections conn = new Connections();
             dbConn = conn.initializeConn();
@@ -56,7 +55,7 @@ namespace Bug_Tracking
                 }
                 try
                 {
-                    string source = rdr.GetString(9);
+                    string source = rdr.GetString(10);
                     codeExists = true;
                     Session.code = source;
                 }
@@ -206,7 +205,6 @@ namespace Bug_Tracking
         {
             if (imageExists)
             {
-               
                 Form viewScreenshot = new ViewScreenshot();
                 viewScreenshot.Show();
             }

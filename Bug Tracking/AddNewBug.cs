@@ -118,25 +118,46 @@ namespace Bug_Tracking
             }
             else
             {
+                //Gets the date for today and stores it into a DateTime variable
                 DateTime dateTime = DateTime.Today;
+
+                //Removes the error from errorProvider if a product is selected
                 errorProvider.SetError(comboBox1, null);
             
                 dbConn.Open();
-                Console.WriteLine("MySQL version : {0}", dbConn.ServerVersion);
-                string reporter = textBox2.Text.ToString();         //Creates a variable to store the reporter name
-                string version = textBox3.Text.ToString();          //Creates a variable to store the reporter name
-                string severity = textBox4.Text.ToString();         //Creates a variable to store the reporter name
-                string platform = textBox5.Text.ToString();         //Creates a variable to store the reporter name
-                string product = comboBox1.SelectedItem.ToString();
-                string daterecorded = dateTime.ToString("d");
-                string deadline = dateTimePicker1.Value.Date.ToString("d");
-                string summary = textBox1.Text.ToString();
-                string description = textBox6.Text.ToString();
 
+                //Creates a variable to store the reporter name
+                string reporter = textBox2.Text.ToString();
+
+                //Creates a variable to store the version
+                string version = textBox3.Text.ToString();
+
+                //Creates a variable to store the severity of the bug
+                string severity = textBox4.Text.ToString();
+
+                //Creates a variable to store the platform name
+                string platform = textBox5.Text.ToString();
+
+                //Creates a variable to store the product name
+                string product = comboBox1.SelectedItem.ToString();
+
+                //Creates a variable to store the bug submitted date recorded by extracting only the date
+                string daterecorded = dateTime.ToString("d");
+
+                //Creates a variable to store the bug deadline date by extracting only the date
+                string deadline = dateTimePicker1.Value.Date.ToString("d");
+
+                //Creates a variable to store the summary
+                string summary = textBox1.Text.ToString();
+
+                //Creates a variable to store the description
+                string description = textBox6.Text.ToString();
 
                 try
                 {
+                    //Retrieves the code submitted from the WriteCode form
                     sourcecode = Session.writtencode;
+
                     MySqlCommand cmd = new MySqlCommand();
                     cmd.Connection = dbConn;
                     cmd.CommandText = "INSERT INTO bugs(reporter, version, severity, platform, product, date_recorded, deadline, summary, description, source, image) VALUES(@reporter, @version, @severity, @platform, @product, @daterec, @deadline, @summary, @description, @source, @image)";
@@ -163,6 +184,7 @@ namespace Bug_Tracking
                 }
                 finally
                 {
+                    //Displays success messagebox to the user if bug is submitted succesfully
                     if (dbConn != null)
                     {
                         string message = "You have successfully submitted a bug!";

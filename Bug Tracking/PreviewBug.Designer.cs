@@ -67,7 +67,6 @@
             this.label4.Text = "Here are some additional details for the bug. If you are a programmer please try " +
     "to locate the bug and update it in the repository by clicking \'Add developer det" +
     "ails\'.";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label2
             // 
