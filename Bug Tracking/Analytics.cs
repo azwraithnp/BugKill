@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Bug_Tracking
@@ -17,18 +10,21 @@ namespace Bug_Tracking
             InitializeComponent();
         }
 
+        //Displays the form for showing chart for number of bugs in a year
         private void button1_Click(object sender, EventArgs e)
         {
             Form numBugs = new NumBugs();
             numBugs.Show();
         }
 
+        //Displays the form for showing chart for number of fixed and unfixed bugs in a year
         private void button2_Click(object sender, EventArgs e)
         {
             Form fixedNums = new FixedUnfixed();
             fixedNums.Show();
         }
 
+        //Displays the form for showing the most successful programmers solving the bugs
         private void button3_Click(object sender, EventArgs e)
         {
             Form propro = new ProPro();

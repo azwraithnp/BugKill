@@ -1,13 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Bug_Tracking
@@ -36,7 +29,7 @@ namespace Bug_Tracking
             //Stores the current active username to the user textbox
             textBox2.Text = Session.session_name;
 
-            /* Creates a connection object, 
+            /* Creates a connections object, 
              * initializes it then opens the connection */
             Connections conn = new Connections();
             dbConn = conn.initializeConn();
@@ -197,7 +190,7 @@ namespace Bug_Tracking
             }
         }
         
-        
+        //Opens up the form to submit code 
         private void button3_Click(object sender, EventArgs e)
         {
             Form writeCode = new WriteCode();

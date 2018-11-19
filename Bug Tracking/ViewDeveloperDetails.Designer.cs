@@ -67,7 +67,6 @@
             this.label2.Text = "Here are the developer/technical details for the bug. If you do not understand th" +
     "is, you are advised to go back to the previous page where general information is" +
     " provided.";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // linkLabel1
             // 
@@ -132,7 +131,6 @@
             this.label6.Size = new System.Drawing.Size(84, 18);
             this.label6.TabIndex = 8;
             this.label6.Text = "Code block";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label7
             // 
@@ -153,7 +151,6 @@
             this.label8.Size = new System.Drawing.Size(381, 18);
             this.label8.TabIndex = 14;
             this.label8.Text = "Details for the bug located at specific portion of the code.";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label9
             // 

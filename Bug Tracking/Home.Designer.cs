@@ -36,6 +36,7 @@
             this.addNewBugToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.requestReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openVCSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.analyticsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
@@ -50,7 +51,6 @@
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.analyticsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -118,6 +118,13 @@
             this.openVCSToolStripMenuItem.Text = "Open VCS";
             this.openVCSToolStripMenuItem.Click += new System.EventHandler(this.openVCSToolStripMenuItem_Click);
             // 
+            // analyticsToolStripMenuItem
+            // 
+            this.analyticsToolStripMenuItem.Name = "analyticsToolStripMenuItem";
+            this.analyticsToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
+            this.analyticsToolStripMenuItem.Text = "Analytics";
+            this.analyticsToolStripMenuItem.Click += new System.EventHandler(this.analyticsToolStripMenuItem_Click);
+            // 
             // logoutToolStripMenuItem
             // 
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
@@ -143,7 +150,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(776, 599);
             this.panel1.TabIndex = 10;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // pictureBox4
             // 
@@ -162,7 +168,6 @@
             this.pictureBox3.Size = new System.Drawing.Size(222, 127);
             this.pictureBox3.TabIndex = 21;
             this.pictureBox3.TabStop = false;
-            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
             // pictureBox2
             // 
@@ -264,13 +269,6 @@
             this.label4.Text = "Welcome to BugKill. An interactive platform where u can manage and deal with thos" +
     "e annoying bugs you face in your software or development process. ";
             // 
-            // analyticsToolStripMenuItem
-            // 
-            this.analyticsToolStripMenuItem.Name = "analyticsToolStripMenuItem";
-            this.analyticsToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
-            this.analyticsToolStripMenuItem.Text = "Analytics";
-            this.analyticsToolStripMenuItem.Click += new System.EventHandler(this.analyticsToolStripMenuItem_Click);
-            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -281,7 +279,6 @@
             this.IsMdiContainer = true;
             this.Name = "Home";
             this.Text = "Home";
-            this.Load += new System.EventHandler(this.Home_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);

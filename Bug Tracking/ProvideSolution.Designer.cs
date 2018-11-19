@@ -109,7 +109,6 @@
             this.Controls.Add(this.label1);
             this.Name = "ProvideSolution";
             this.Text = "Provide solution";
-            this.Load += new System.EventHandler(this.ProvideSolution_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

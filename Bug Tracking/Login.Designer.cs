@@ -62,7 +62,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(628, 402);
             this.panel1.TabIndex = 5;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // button1
             // 
@@ -82,7 +81,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(201, 210);
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_1);
             // 
             // linkLabel1
             // 
@@ -105,7 +103,6 @@
             this.label4.TabIndex = 5;
             this.label4.Text = "Welcome to BugKill. To start using this awesome platform and exploit its rich fea" +
     "tures, please login with your bugkill account.";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // textBox2
             // 
@@ -115,7 +112,6 @@
             this.textBox2.Size = new System.Drawing.Size(181, 24);
             this.textBox2.TabIndex = 4;
             this.textBox2.UseSystemPasswordChar = true;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // textBox1
             // 
@@ -155,7 +151,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Login";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // errorProvider
             // 

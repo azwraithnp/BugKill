@@ -1,12 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Bug_Tracking
@@ -17,31 +10,20 @@ namespace Bug_Tracking
     /// </summary>
     public partial class ViewDeveloperDetails : Form
     {
+        //Creates a connection object for mysql client
         MySqlConnection dbConn;
 
         public ViewDeveloperDetails()
         {
             InitializeComponent();
+
+            //Creates a connections object to initialize mysql connection
             Connections conn = new Connections();
             dbConn = conn.initializeConn();
             dbConn.Open();
         }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        
+        //Checks if code is provided for this bug then opens up form to show code for this bug
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             if (Session.code != null)
@@ -55,12 +37,17 @@ namespace Bug_Tracking
             }
         }
 
+        //Opens up form to add developer details for this bug
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Form addDetails = new AddDeveloperDetails();
             addDetails.Show();
         }
 
+        /** Creates a method for when the form loads,
+         *  retrieves all data from bug_xdetails table,
+         *  populates the retrieved data in the labels,
+         *  closes the connection when done */
         private void ViewDeveloperDetails_Load(object sender, EventArgs e)
         {
 
@@ -74,21 +61,22 @@ namespace Bug_Tracking
 
             while (rdr.Read())
             {
-                int bugid = rdr.GetInt32(0);
-                string author = rdr.GetString(1);
-                string classname = rdr.GetString(2);
-                string method = rdr.GetString(3);
-                string codeblock = rdr.GetString(4);
-                string linenumber = rdr.GetString(5);
+                int bugid = rdr.GetInt32(0);            //Creates a variable to store the bugid
+                string author = rdr.GetString(1);       //Creates a variable to store the code author
+                string classname = rdr.GetString(2);    //Creates a variable to store the bug in code class name
+                string method = rdr.GetString(3);       //Creates a variable to store the bug in code method name
+                string codeblock = rdr.GetString(4);    //Creates a variable to store the bug in code codeblock
+                string linenumber = rdr.GetString(5);   //Creates a variable to store the bug in code linenumber
 
+                //Checks whether the current active bug id equals to the bug id of the current bug index
                 if (id == bugid)
                 {
-                    label10.Text = author;
-                    label11.Text = classname;
-                    label12.Text = method;
-                    label13.Text = codeblock;
-                    label14.Text = linenumber;
-                    break;
+                    label10.Text = author;              //Sets the author name to author label
+                    label11.Text = classname;           //Sets the class name to class name label
+                    label12.Text = method;              //Sets the method name to method name label
+                    label13.Text = codeblock;           //Sets the codeblock to codeblock label
+                    label14.Text = linenumber;          //Sets the line number to line number label
+                    break;                              //Exits the loop when done
                 }
             }
             dbConn.Close();

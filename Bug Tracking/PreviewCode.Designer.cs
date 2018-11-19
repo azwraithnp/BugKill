@@ -51,7 +51,6 @@
             this.textEditorControl1.Size = new System.Drawing.Size(776, 470);
             this.textEditorControl1.TabIndex = 4;
             this.textEditorControl1.Text = "textEditorControl1";
-            this.textEditorControl1.Load += new System.EventHandler(this.textEditorControl1_Load);
             // 
             // PreviewCode
             // 
@@ -62,7 +61,6 @@
             this.Controls.Add(this.label1);
             this.Name = "PreviewCode";
             this.Text = "PreviewCode";
-            this.Load += new System.EventHandler(this.PreviewCode_Load);
             this.ResumeLayout(false);
 
         }

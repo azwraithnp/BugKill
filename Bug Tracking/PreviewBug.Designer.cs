@@ -55,7 +55,6 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Previewing a bug";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label4
             // 
@@ -77,7 +76,6 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(774, 2);
             this.label2.TabIndex = 8;
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // summary
             // 
@@ -162,7 +160,6 @@
             this.checkBox1.TabIndex = 19;
             this.checkBox1.Text = "Bug fixed?";
             this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             this.checkBox1.Click += new System.EventHandler(this.checkBox1_Click);
             // 
             // button3
@@ -201,11 +198,11 @@
             // button5
             // 
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(305, 510);
+            this.button5.Location = new System.Drawing.Point(299, 510);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(222, 48);
             this.button5.TabIndex = 23;
-            this.button5.Text = "Preview solution if fixed";
+            this.button5.Text = "Preview solution ";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 

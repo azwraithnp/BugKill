@@ -1,12 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Bug_Tracking
@@ -17,27 +10,30 @@ namespace Bug_Tracking
     /// </summary>
     public partial class ViewBugs : Form
     {
+        //Creates a connection object for mysql client
         MySqlConnection dbConn; 
 
         public ViewBugs()
         {
             InitializeComponent();
+
+            //Creates a connections object to initialize mysql connection
             Connections conn = new Connections();
             dbConn = conn.initializeConn();
             dbConn.Open();
 
         }
 
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        /** Creates a method for when the form loads,
+         *  compares the searchterm provided by the user,
+         *  retrieves data from the database according to the search term,
+         *  creates a listitem with the data retrieved for the bug and populates it in the listview,
+         *  closes the connection when done */
         private void ViewBugs_Load(object sender, EventArgs e)
         {
             if (Session.searchBy != null)
             {
-                 try
+                try
                 {
                     MySqlCommand cmd = new MySqlCommand();
                     cmd.Connection = dbConn;
@@ -73,8 +69,6 @@ namespace Bug_Tracking
 
                     while (rdr.Read())
                     {
-                        Console.WriteLine("Search activated");
-
                         int id = rdr.GetInt32(0);
                         string reporter = rdr.GetString(1);
                         string version = rdr.GetString(2);
@@ -85,16 +79,14 @@ namespace Bug_Tracking
                         string deadline = rdr.GetString(7);
                         string fixeds = rdr.GetString(11);
 
-                        //imageList.Images.Add(Image.FromFile(@"../../forward.png"));
-                        //listView1.LargeImageList = imageList;
-                        //listView1.SmallImageList = imageList;
-
+                        //Creates a  string array with the above retrieved data for the bug
                         var collection = new string[] { id + "", product, reporter, version, severity, platform, daterec, deadline, fixeds };
+                        
+                        //Creates a listviewitem with the string array created above
                         var lvl = new ListViewItem(collection);
 
-
+                        //Populates the listview with the listviewitem created above
                         listView1.Items.Add(lvl);
-
                     }
 
                 }
@@ -136,6 +128,10 @@ namespace Bug_Tracking
             }
         }
 
+        /** Creates a method for listview item clicked
+         *  gets the selected item text at position 0, in this case for id,
+         *  opens up the form to preview the bug for the selected bug id,
+         *  closes this form when done */
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
             
@@ -144,13 +140,6 @@ namespace Bug_Tracking
             Form previewBugs = new PreviewBug();
             previewBugs.Show();
             this.Close();
-            
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

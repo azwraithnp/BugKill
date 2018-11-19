@@ -1,16 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Firefox;
 
 namespace Bug_Tracking
 {
@@ -20,24 +12,28 @@ namespace Bug_Tracking
     /// </summary>
     public partial class Home : Form
     {
+        //Creates a connection object for mysql client
         MySqlConnection dbConn;
 
         public Home()
         {
             InitializeComponent();
+
+            //Creates a connections object to initialize mysql connection
             Connections conn = new Connections();
             dbConn = conn.initializeConn();
             try
             {
                 dbConn.Open();
             }
+            //If sql database is not running, display a warning messagebox to the user
             catch (Exception ex)
             {
                 MessageBox.Show("Warning: mySQL database is not connected. Functional database is required to use this application properly. Please open it before continuing otherwise the app may crash!\n\nError message: " + ex, "Database not connected");
             }
         }
         
-
+        //Checks if user is logged in then opens a form to view bugs
         private void bugLogsToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             if (Session.session_name != null)
@@ -53,6 +49,7 @@ namespace Bug_Tracking
             }
         }
 
+        //Checks if user is logged in then opens a form to add product
         private void addNewProductToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             if (Session.session_name != null)
@@ -68,6 +65,7 @@ namespace Bug_Tracking
             }
         }
 
+        //Checks if user is logged in then opens a form to login
         private void homeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (Session.session_name != null)
@@ -81,6 +79,7 @@ namespace Bug_Tracking
             }
         }
 
+        //Checks if user is logged in then opens a form to add new bug
         private void addNewBugToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             if (Session.session_name != null)
@@ -97,6 +96,7 @@ namespace Bug_Tracking
 
         }
 
+        //Checks if user is logged in then opens a form to search bugs
         private void requestReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (Session.session_name != null)
@@ -111,33 +111,15 @@ namespace Bug_Tracking
                 login.Show();
             }
         }
-
-        private void Home_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void pictureBox3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox4_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        
+        //Opens a form to login or create account when link label is clicked
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Form login = new Login();
             login.Show();
         }
 
+        //Opens a form to logout the session
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (Session.session_name == null)
@@ -151,22 +133,33 @@ namespace Bug_Tracking
             }
         }
 
+        //Checks if user is logged in then opens the version control system
         private void openVCSToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (Session.session_name != null)
             {
+                //Creates a ChromeOptions object to set the webdriver properties
                 ChromeOptions opt = new ChromeOptions();
+
+                /* Sets the page load strategy to none so that,
+                 * the web driver doesn't wait the page to be fully loaded
+                 * to carry on the following tasks */
                 opt.PageLoadStrategy = PageLoadStrategy.None;
 
+                //Creates a new webdriver for Chrome using the options object
                 ChromeDriver cd = new ChromeDriver(opt);
+
+                //Sets the url to load for the webdriver to be login page of github.com
                 cd.Url = "https://github.com/login";
                 
-
+                //Finds the login and password field then enters the credentials to login
                 cd.FindElement(By.Id("login_field")).SendKeys("avimshra@gmail.com");
-                cd.FindElement(By.Id("password")).SendKeys("babumishra1" + OpenQA.Selenium.Keys.Enter);
+                cd.FindElement(By.Id("password")).SendKeys(Connections.pass + OpenQA.Selenium.Keys.Enter);
                 
-
+                //After logged in to github, displays the repository for this project
                 cd.Url = "https://github.com/azwraithnp/BugKill";
+
+                //Maximizes the repository page window for better preview
                 cd.Manage().Window.Maximize();
 
             }
@@ -179,6 +172,7 @@ namespace Bug_Tracking
             
         }
 
+        //Checks if the user is logged in then displays the analytics form
         private void analyticsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (Session.session_name != null)

@@ -37,10 +37,10 @@
             this.chversion = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chseverity = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chplatform = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chdate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chdeadline = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chfixed = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label2 = new System.Windows.Forms.Label();
-            this.chdate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // label1
@@ -64,7 +64,6 @@
             this.label4.Text = "Below are the basic details of the bugs recorded in our system by black-box teste" +
     "rs. If you are a programmer or developer please preview the bug to provide detai" +
     "led description of the bug.";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // listView1
             // 
@@ -117,9 +116,13 @@
             this.chplatform.Text = "Platform";
             this.chplatform.Width = 96;
             // 
+            // chdate
+            // 
+            this.chdate.Text = "Date recorded";
+            this.chdate.Width = 114;
+            // 
             // chdeadline
             // 
-            this.chdeadline.DisplayIndex = 6;
             this.chdeadline.Text = "Deadline";
             this.chdeadline.Width = 121;
             // 
@@ -137,13 +140,6 @@
             this.label2.Size = new System.Drawing.Size(776, 27);
             this.label2.TabIndex = 8;
             this.label2.Text = "TIP: To view a bug in detail click on its ID number";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
-            // 
-            // chdate
-            // 
-            this.chdate.DisplayIndex = 5;
-            this.chdate.Text = "Date recorded";
-            this.chdate.Width = 114;
             // 
             // ViewBugs
             // 

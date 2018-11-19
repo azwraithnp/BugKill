@@ -2,7 +2,6 @@ C:\Users\Avinash Mishra\source\repos\Bug Tracking\Bug Tracking\bin\Debug\Bug Tra
 C:\Users\Avinash Mishra\source\repos\Bug Tracking\Bug Tracking\bin\Debug\Bug Tracking.exe
 C:\Users\Avinash Mishra\source\repos\Bug Tracking\Bug Tracking\bin\Debug\Bug Tracking.pdb
 C:\Users\Avinash Mishra\source\repos\Bug Tracking\Bug Tracking\obj\Debug\Bug Tracking.csprojAssemblyReference.cache
-C:\Users\Avinash Mishra\source\repos\Bug Tracking\Bug Tracking\obj\Debug\Bug_Tracking.MDIParent1.resources
 C:\Users\Avinash Mishra\source\repos\Bug Tracking\Bug Tracking\obj\Debug\Bug_Tracking.Properties.Resources.resources
 C:\Users\Avinash Mishra\source\repos\Bug Tracking\Bug Tracking\obj\Debug\Bug Tracking.csproj.GenerateResource.cache
 C:\Users\Avinash Mishra\source\repos\Bug Tracking\Bug Tracking\obj\Debug\Bug Tracking.csproj.CoreCompileInputs.cache

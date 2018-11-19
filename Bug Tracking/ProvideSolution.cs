@@ -1,14 +1,7 @@
 ﻿using ICSharpCode.TextEditor.Document;
 using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Bug_Tracking
@@ -20,66 +13,96 @@ namespace Bug_Tracking
     /// </summary>
     public partial class ProvideSolution : Form
     {
+        //Creates a boolean variable to check whether solution for the bug exists or not
         Boolean solutionExists = false;
+
+        //Creates a connection object for mysql client
         MySqlConnection dbConn;
 
         public ProvideSolution()
         {
             InitializeComponent();
 
+            //Creates a FileSyntaxModeProvider object to provide binary for the color syntaxing
             FileSyntaxModeProvider fsmp;
+
+            //Provide directory path for fsmp object
             string dirc = Application.StartupPath;
 
+            //Checks if the provided directory path exists
             if (Directory.Exists(dirc))
             {
+                //Initialize the fsmp object with the provided directory path
                 fsmp = new FileSyntaxModeProvider(dirc);
+
+                /*Pass the fsmp object created as argument for the sytanxmodefileprovider 
+                 * of highlightingmanager of the texteditor */
                 HighlightingManager.Manager.AddSyntaxModeFileProvider(fsmp);
             }
+
+            //Set syntax highlighting mode to be C#
             textEditorControl1.SetHighlighting("C#");
+
+            //Set texteditor text to inform user to enter their solution code here
             textEditorControl1.Text = "//enter your code here";
 
-
+            //Checks whether solution exists for this bug in Session
             if (Session.solutionExists.Equals("yes"))
             {
+                //Sets value of solutionExists to true if solution exists
                 solutionExists = true;
+
+                //If solution exists, change the submit button text to update
                 button1.Text = "Update";
             }
+
+            //Creates a connections object to initialize the mysql connection
             Connections conn = new Connections();
             dbConn = conn.initializeConn();
             dbConn.Open();
 
+            //Creates a mysqlcommand and executes it to retrieve all data from bug solutions table
             string stm = "SELECT * FROM bugs_solutions";
             MySql.Data.MySqlClient.MySqlCommand cmd = new MySql.Data.MySqlClient.MySqlCommand(stm, dbConn);
             MySql.Data.MySqlClient.MySqlDataReader rdr = cmd.ExecuteReader();
 
             while (rdr.Read())
             {
-                int id = rdr.GetInt32(0);
-                string summary = rdr.GetString(1);
-                string code = rdr.GetString(2);
-                int bugid = (int)Single.Parse(Session.id);
+                int id = rdr.GetInt32(0);                   //Creates a variable to store the bugid
+                string summary = rdr.GetString(1);          //Creates a variable to store the solution summary
+                string code = rdr.GetString(2);             //Creates a variable to store the solution code
+                int bugid = (int)Single.Parse(Session.id);  //Parses the string value of bugid to int
+
+
+                //If id of the current active bug equals to current index of bug id
                 if (bugid == id)
                 {
-                    textBox2.Text = summary;
-                    textEditorControl1.Text = code;
+                    textBox2.Text = summary;                //Sets the summary textbox text to summary
+                    textEditorControl1.Text = code;         //Sets the texteditorcontrol text to source code
                 }
             }
-            dbConn.Close();
+            dbConn.Close();                                 //Finally closes the connection
 
             
             
         }
 
+        /** Creates a method for submit button,
+         *  retrieves all data entered in the textboxes,
+         *  if solution for this bug exists, updates the current solution with the new values,
+         *  if solution doesn't exist, adds a new solution for this bug,
+         *  closes the connection when done */
         private void button1_Click(object sender, EventArgs e)
         {
-            string summary = textBox2.Text;
-            string solutioncode = textEditorControl1.Text;
+            string summary = textBox2.Text;                 //Creates a variable to store the solution summary                 
+            string solutioncode = textEditorControl1.Text;  //Creates a variable to store the solution code
             dbConn.Open();
             if (solutionExists)
             {
+                //Creates a mysqlcommand and executes it to update the current solution with new values
                 try
                 {
-                    MySqlCommand cmd = new MySqlCommand();
+                    MySqlCommand cmd = new MySqlCommand();  
                     cmd.Connection = dbConn;
                     cmd.CommandText = "UPDATE bugs_solutions SET solution_summary=@summary, solution_code=@code, solution_provided_by=@user WHERE bugid = @bugid";
                     cmd.Prepare();
@@ -96,6 +119,7 @@ namespace Bug_Tracking
                 }
                 finally
                 {
+                    //Displays an appropriate messagebox to the user if bug was updated successfully
                     if (dbConn != null)
                     {
                         string message = "You have successfully updated the solution to this bug!";
@@ -107,6 +131,7 @@ namespace Bug_Tracking
             }
             else
             {
+                //Creates a mysqlcommand and executes it to add the current solution in database
                 try
                 {
                     MySqlCommand cmd = new MySqlCommand();
@@ -126,6 +151,7 @@ namespace Bug_Tracking
                 }
                 finally
                 {
+                    //Displays an appropriate messagebox to the user if solution was added sucessfully
                     if (dbConn != null)
                     {
                         string message = "You have successfully submitted a solution to this bug!";
@@ -135,14 +161,6 @@ namespace Bug_Tracking
                     }
                 }
             }
-
-
-
-        }
-
-        private void ProvideSolution_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

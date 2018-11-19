@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Bug_Tracking
@@ -23,6 +16,7 @@ namespace Bug_Tracking
 
         private void SearchBug_Load(object sender, EventArgs e)
         {
+            //Add search terms to select into combobox
             comboBox1.Items.Add("bugid");
             comboBox1.Items.Add("reporter");
             comboBox1.Items.Add("version");
@@ -30,15 +24,15 @@ namespace Bug_Tracking
             comboBox1.Items.Add("platform");
             comboBox1.Items.Add("product");
 
+            //Set first index of the combobox to be select a search by keyword
             comboBox1.Items.Insert(0, "Select a search by keyword");
             comboBox1.SelectedIndex = 0;
         }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        
+        /** Creates a method for submit method,
+         *  checks whether a keyword is selected from the combobox,
+         *  checks whether the search term is empty,
+         *  if data is entered properly, opens up the viewbugs form by passing search terms in Session */
         private void button1_Click(object sender, EventArgs e)
         {
             if(comboBox1.SelectedIndex == 0)
@@ -54,6 +48,7 @@ namespace Bug_Tracking
             else
             {
                 errorProvider.SetError(textBox3, null);
+                //Saves the entered search keyword and term in Session to be used later 
                 Session.searchBy = comboBox1.SelectedItem.ToString();
                 Session.searchTerm = textBox3.Text;
                 Form viewBugs = new ViewBugs();

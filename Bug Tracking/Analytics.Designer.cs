@@ -84,11 +84,11 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.label2.Location = new System.Drawing.Point(659, 407);
+            this.label2.Location = new System.Drawing.Point(668, 407);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(120, 24);
+            this.label2.Size = new System.Drawing.Size(110, 24);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Bugzilla 2018";
+            this.label2.Text = "Bugkill 2018";
             // 
             // Analytics
             // 
