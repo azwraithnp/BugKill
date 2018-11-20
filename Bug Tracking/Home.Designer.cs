@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,6 +52,7 @@
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -269,6 +271,12 @@
             this.label4.Text = "Welcome to BugKill. An interactive platform where u can manage and deal with thos" +
     "e annoying bugs you face in your software or development process. ";
             // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.Visible = true;
+            this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -279,6 +287,7 @@
             this.IsMdiContainer = true;
             this.Name = "Home";
             this.Text = "Home";
+            this.Resize += new System.EventHandler(this.form_resized);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -316,6 +325,7 @@
         private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openVCSToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem analyticsToolStripMenuItem;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
     }
 }
 

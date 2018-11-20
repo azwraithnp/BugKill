@@ -54,25 +54,37 @@ namespace Bug_Tracking
                 string desc = rdr.GetString(8);         //Creates a variable to store the bug description
                 try
                 {
-                    byte[] imageBytes = (byte[])rdr["image"];  //Retrieves image binary from database if it exists
-                   
-                    Session.imageData = imageBytes;            //Saves the retrieved image binary to Session
-                    imageExists = true;                        //Sets the boolean value of imageExists to true if try was successful
+                    //Retrieves image binary from database if it exists
+                    byte[] imageBytes = (byte[])rdr["image"];
+
+                    //Saves the retrieved image binary to Session
+                    Session.imageData = imageBytes;
+
+                    //Sets the boolean value of imageExists to true if try was successful
+                    imageExists = true;                        
                 }
                 catch(Exception e)
                 {
-                    imageExists = false;                       //Sets the boolean value of imageExists to false if image was not found in database
+                    //Sets the boolean value of imageExists to false if image was not found in database
+                    imageExists = false;                       
                 }
                 try
                 {
-                    string source = rdr.GetString(10);         //Retrieves source code from database if it exists
-                    codeExists = true;                         //Sets the boolean value of codeExists to true if try was successful
-                    Session.code = source;                     //Saves the retrieved source code to Session
+                    //Retrieves source code from database if it exists
+                    string source = rdr.GetString(10);
+
+                    //Sets the boolean value of codeExists to true if try was successful
+                    codeExists = true;
+
+                    //Saves the retrieved source code to Session
+                    Session.code = source;                     
                 }
                 catch(Exception e)
                 {
-                    codeExists = false;                         //Sets the boolean value of codeExists to false if source code was not found in database
+                    //Sets the boolean value of codeExists to false if source code was not found in database
+                    codeExists = false;                         
                 }
+
                 string fixedstatus = rdr.GetString(11);         //Get the fixed status of the bug 
 
                 //Checks if the current active bug id is equal to current index of the bug
@@ -80,22 +92,36 @@ namespace Bug_Tracking
                 {
                     if(fixedstatus.Equals("yes"))               
                     {
-                        checkBox1.Checked = true;               //If the bug is fixed, set value of checkbox to checked
-                        Session.fixedstatus = "yes";            //Sets the fixedstatus value in Session
+                        //If the bug is fixed, set value of checkbox to checked
+                        checkBox1.Checked = true;
+
+                        //Sets the fixedstatus value in Session
+                        Session.fixedstatus = "yes";            
                     }
                     else
                     {
-                        checkBox1.Checked = false;              //If the bug is not fixed, set value of checkbox to unchecked
-                        Session.fixedstatus = "no";             //Sets the fixedstatus value in Session
+                        //If the bug is not fixed, set value of checkbox to unchecked
+                        checkBox1.Checked = false;
+
+                        //Sets the fixedstatus value in Session
+                        Session.fixedstatus = "no";             
                     }
-                    bugid = id;                                 //Set bugid to the current bug id
-                    textBox2.Text = summarytxt;                 //Set summary text to summary textbox
-                    textBox1.Text = desc;                       //Set description text to description textbox
-                    
-                    break;                                      //Exits the loop when the current bug is found
+
+                    //Set bugid to the current bug id
+                    bugid = id;
+
+                    //Set summary text to summary textbox
+                    textBox2.Text = summarytxt;
+
+                    //Set description text to description textbox
+                    textBox1.Text = desc;
+
+                    //Exits the loop when the current bug is found
+                    break;                                      
                 }
             }
-            dbConn.Close();                                     //Finally closes the connection
+            //Finally closes the connection
+            dbConn.Close();                                     
 
 
         }
