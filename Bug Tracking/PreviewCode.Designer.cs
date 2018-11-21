@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PreviewCode));
             this.label1 = new System.Windows.Forms.Label();
             this.textEditorControl1 = new ICSharpCode.TextEditor.TextEditorControl();
             this.SuspendLayout();
@@ -59,8 +60,9 @@
             this.ClientSize = new System.Drawing.Size(800, 569);
             this.Controls.Add(this.textEditorControl1);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PreviewCode";
-            this.Text = "PreviewCode";
+            this.Text = "Preview code";
             this.ResumeLayout(false);
 
         }

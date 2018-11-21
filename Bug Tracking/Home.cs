@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Support.UI;
 
 namespace Bug_Tracking
 {
@@ -153,8 +154,11 @@ namespace Bug_Tracking
                  * to carry on the following tasks */
                 opt.PageLoadStrategy = PageLoadStrategy.None;
 
+
                 //Creates a new webdriver for Chrome using the options object
                 ChromeDriver cd = new ChromeDriver(opt);
+
+                WebDriverWait wait = new WebDriverWait(cd, TimeSpan.FromSeconds(4));
 
                 //Sets the url to load for the webdriver to be login page of github.com
                 cd.Url = "https://github.com/login";

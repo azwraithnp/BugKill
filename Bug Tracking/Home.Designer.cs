@@ -284,6 +284,7 @@
             this.ClientSize = new System.Drawing.Size(800, 657);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.Name = "Home";
             this.Text = "Home";
