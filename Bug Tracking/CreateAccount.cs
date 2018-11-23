@@ -18,8 +18,7 @@ namespace Bug_Tracking
             //Creates a conection for mysql client to open it 
             Connections conn = new Connections();
             dbConn = conn.initializeConn();
-            dbConn.Open();
-
+            
             //Inserts the default value for the combobox and sets its index to 0
             comboBox1.Items.Insert(0, "Select an account type");
             comboBox1.SelectedIndex = 0;
@@ -54,8 +53,16 @@ namespace Bug_Tracking
                 errorProvider.SetError(textBox1, null);
                 errorProvider.SetError(textBox2, "Password cannot be empty!");
             }
+            //If user has not matched passwords in both textboxes, provide an error for confirm password textbox
+            else if(!textBox2.Text.Equals(textBox3.Text))
+            {
+                errorProvider.SetError(textBox2, null);
+                errorProvider.SetError(textBox3, "Passwords do not match!");
+            }
             else
             {
+                dbConn.Open();
+
                 //Removes the error after validation is complete and proceeds to saving data in database
                 errorProvider.SetError(textBox2, null);
 

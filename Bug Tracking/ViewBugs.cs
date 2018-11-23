@@ -46,6 +46,14 @@ namespace Bug_Tracking
                     {
                         cmd.CommandText = "SELECT * FROM bugs WHERE reporter = @selectTerm";
                     }
+                    else if(Session.searchBy.Equals("date_recorded"))
+                    {
+                        cmd.CommandText = "SELECT * FROM bugs WHERE date_recorded = @selectTerm";
+                    }
+                    else if (Session.searchBy.Equals("deadline"))
+                    {
+                        cmd.CommandText = "SELECT * FROM bugs WHERE deadline = @selectTerm";
+                    }
                     else if(Session.searchBy.Equals("version"))
                     {
                         cmd.CommandText = "SELECT * FROM bugs WHERE version = @selectTerm";

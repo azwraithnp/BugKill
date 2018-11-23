@@ -79,6 +79,9 @@ namespace Bug_Tracking
                         //Sets the session username to be the current username
                         Session.session_name = user;
 
+                        //Sets the session account type to be the current account type
+                        Session.session_type = type;
+
                         //Displays a messagebox to the user that they have successfully logged in
                         string message = "You have logged in as " + type + "!";
                         string title = "Login Successful";

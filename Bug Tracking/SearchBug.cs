@@ -19,6 +19,8 @@ namespace Bug_Tracking
             //Add search terms to select into combobox
             comboBox1.Items.Add("bugid");
             comboBox1.Items.Add("reporter");
+            comboBox1.Items.Add("date_recorded");
+            comboBox1.Items.Add("deadline");
             comboBox1.Items.Add("version");
             comboBox1.Items.Add("severity");
             comboBox1.Items.Add("platform");

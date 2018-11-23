@@ -125,7 +125,6 @@ namespace Bug_Tracking
                 catch (MySqlException ex)
                 {
                     Console.WriteLine("Error: " + ex.ToString());
-
                 }
                 finally
                 {
@@ -191,8 +190,17 @@ namespace Bug_Tracking
             }
             else
             {
-                Form provideSolution = new ProvideSolution();
-                provideSolution.Show();
+                if (Session.session_name != null && Session.session_type.Equals("Programmer/Developer"))
+                {
+                    Form provideSolution = new ProvideSolution();
+                    provideSolution.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Sorry, you need to login as a programmer or a developer to provide a solution.", "Not allowed");
+                    Form login = new Login();
+                    login.Show();
+                }
             }
         }
     }

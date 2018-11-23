@@ -57,17 +57,17 @@ namespace Bug_Tracking
             }
         }
 
-        //Checks if user is logged in then opens a form to add product
+        //Checks if appropriate user is logged in then opens a form to add product
         private void addNewProductToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            if (Session.session_name != null)
+            if (Session.session_name != null && Session.session_type.Equals("Client/General consumer"))
             {
                 Form addProd = new AddProduct();
                 addProd.Show();
             }
             else
             {
-                MessageBox.Show("Please login first.", "Login required");
+                MessageBox.Show("Please login as a client/general consumer first.", "Login required");
                 Form login = new Login();
                 login.Show();
             }
@@ -87,17 +87,17 @@ namespace Bug_Tracking
             }
         }
 
-        //Checks if user is logged in then opens a form to add new bug
+        //Checks if appropriate user is logged in then opens a form to add new bug
         private void addNewBugToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            if (Session.session_name != null)
+            if (Session.session_name != null && !Session.session_type.Equals("Client/General consumer"))
             {
                 Form addnewbug = new AddNewBug();
                 addnewbug.Show();
             }
             else
             {
-                MessageBox.Show("Please login first.", "Login required");
+                MessageBox.Show("Please login as a tester or programmer first.", "Login required");
                 Form login = new Login();
                 login.Show();
             }
@@ -158,6 +158,7 @@ namespace Bug_Tracking
                 //Creates a new webdriver for Chrome using the options object
                 ChromeDriver cd = new ChromeDriver(opt);
 
+                //Lets the webdriver wait for few seconds to give it time to locate the webpage fields
                 WebDriverWait wait = new WebDriverWait(cd, TimeSpan.FromSeconds(4));
 
                 //Sets the url to load for the webdriver to be login page of github.com
@@ -166,9 +167,9 @@ namespace Bug_Tracking
                 //Finds the login and password field then enters the credentials to login
                 cd.FindElement(By.Id("login_field")).SendKeys("avimshra@gmail.com");
                 cd.FindElement(By.Id("password")).SendKeys(Connections.pass + OpenQA.Selenium.Keys.Enter);
-                
+
                 //After logged in to github, displays the repository for this project
-                cd.Url = "https://github.com/azwraithnp/BugKill";
+                cd.FindElement(By.XPath("//*[@id='dashboard']/div[1]/div/div[2]/ul/li[1]/div/a")).Click();
 
                 //Maximizes the repository page window for better preview
                 cd.Manage().Window.Maximize();
@@ -183,17 +184,17 @@ namespace Bug_Tracking
             
         }
 
-        //Checks if the user is logged in then displays the analytics form
+        //Checks if appropriate user is logged in then displays the analytics form
         private void analyticsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (Session.session_name != null)
+            if (Session.session_name != null && Session.session_type.Equals("Client/General consumer"))
             {
                 Form analytics = new Analytics();
                 analytics.Show();
             }
             else
             {
-                MessageBox.Show("Please login first.", "Login required");
+                MessageBox.Show("Please login as a client/general consumer first.", "Login required");
                 Form login = new Login();
                 login.Show();
             }

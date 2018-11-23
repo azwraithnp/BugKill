@@ -7,6 +7,7 @@
     public class Session
     {
         public static string session_name = null;   //Creates a variable to store the active user's name
+        public static string session_type = null;   //Creates a variable to store the active user's account type
         public static string id = null;             //Creates a variable to store the active bug id                 
         public static string code = null;           //Creates a varibale to store the source code
         public static string writtencode = null;    //Creates a variable to store the provided code
